@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>報道向けニュースレター｜株式会社LIFEFUND</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+/* ===================================
+   リセット・基本
+=================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal:    #007b7b;
+  --navy:    #111827;
+  --black:   #1a1a1a;
+  --gray-d:  #444444;
+  --gray-m:  #888888;
+  --gray-l:  #e8e8e8;
+  --gray-bg: #f6f6f4;
+  --teal-lt: #eaf4f4;
+  --white:   #ffffff;
+}
+
+body {
+  font-family: "Noto Serif JP", "游明朝", serif;
+  font-size: 9pt;
+  color: var(--black);
+  background: #ddd;
+  line-height: 1.65;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===================================
+   ページ（A4シート）
+=================================== */
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  margin: 8mm auto;
+  box-shadow: 0 2px 16px rgba(0,0,0,.18);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===================================
+   P1 トップバー
+=================================== */
+.topbar {
+  background: var(--navy);
+  padding: 4px 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  color: var(--teal-lt);
+  letter-spacing: 1.5px;
+}
+.topbar-date {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  color: #aaa;
+}
+
+/* アクセントライン */
+.accent-line {
+  height: 3px;
+  background: var(--teal);
+}
+
+/* ===================================
+   P1 大見出しエリア
+=================================== */
+.headline-area {
+  padding: 9mm 16mm 7mm;
+  border-bottom: 2px solid var(--navy);
+}
+.headline-tag {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  color: var(--teal);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.headline-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-l);
+}
+.headline-main {
+  font-size: 17pt;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.headline-sub {
+  font-size: 9.5pt;
+  color: var(--gray-d);
+  line-height: 1.75;
+  border-left: 3px solid var(--teal);
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+/* ===================================
+   本文エリア
+=================================== */
+.body-area {
+  padding: 0 16mm;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ===================================
+   セクション
+=================================== */
+.section {
+  margin: 7mm 0 0;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid var(--gray-l);
+}
+.section:last-child {
+  border-bottom: none;
+}
+.section-head {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--navy);
+  display: inline-block;
+  padding: 2px 10px;
+  margin-bottom: 5px;
+  letter-spacing: .5px;
+}
+.section-head.teal {
+  background: var(--teal);
+}
+
+/* ===================================
+   取材切り口
+=================================== */
+.angles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 3px;
+}
+.angle-item {
+  border: 1px solid var(--gray-l);
+  border-left: 3px solid var(--teal);
+  padding: 7px 10px;
+  background: var(--gray-bg);
+}
+.angle-num {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  color: var(--teal);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.angle-title {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+.angle-body {
+  font-size: 8pt;
+  color: var(--gray-d);
+  line-height: 1.65;
+}
+
+/* ===================================
+   データ（キーファクト）
+=================================== */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--gray-l);
+  margin-top: 4px;
+}
+.fact-item {
+  padding: 9px 10px;
+  border-right: 1px solid var(--gray-l);
+  text-align: center;
+}
+.fact-item:last-child { border-right: none; }
+.fact-num {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 18pt;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+  display: block;
+}
+.fact-label {
+  font-size: 7.5pt;
+  color: var(--gray-d);
+  line-height: 1.5;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ===================================
+   取材先プロフィール
+=================================== */
+.profile {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+.profile-text {
+  flex: 1;
+}
+.profile-name {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.profile-role {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7.5pt;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.profile-bio {
+  font-size: 8.5pt;
+  color: var(--gray-d);
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+.profile-quote {
+  font-size: 8.5pt;
+  color: var(--black);
+  line-height: 1.75;
+  border-left: 3px solid var(--teal);
+  padding-left: 10px;
+  font-style: italic;
+}
+
+/* ===================================
+   P1 フッター（取材連絡先）
+=================================== */
+.contact-footer {
+  background: var(--navy);
+  padding: 3mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.contact-footer-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  color: var(--teal-lt);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+.contact-footer-info {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 8.5pt;
+  color: #fff;
+  line-height: 1.6;
+}
+.contact-footer-info strong {
+  font-size: 10pt;
+}
+.contact-items {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.contact-item {
+  text-align: center;
+}
+.contact-item-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 6.5pt;
+  color: #888;
+  display: block;
+}
+.contact-item-val {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 9pt;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+}
+
+/* ===================================
+   P2 ヘッダー
+=================================== */
+.p2-header {
+  padding: 3mm 16mm 2mm;
+  border-bottom: 2px solid var(--navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.p2-title {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: .5px;
+}
+.p2-parent {
+  font-size: 7.5pt;
+  color: var(--gray-m);
+}
+
+/* ===================================
+   2カラムレイアウト
+=================================== */
+.two-col {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 5mm;
+}
+
+/* ===================================
+   調査データ表
+=================================== */
+table.survey {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+table.survey thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 5px 8px;
+  text-align: left;
+  font-weight: 700;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7.5pt;
+}
+table.survey thead th:last-child {
+  text-align: center;
+  width: 13%;
+}
+table.survey tbody td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--gray-l);
+  vertical-align: top;
+  line-height: 1.6;
+  font-size: 8pt;
+}
+table.survey tbody tr:nth-child(even) td {
+  background: var(--gray-bg);
+}
+table.survey .num {
+  text-align: center;
+  font-weight: 700;
+  color: var(--teal);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 9.5pt;
+  white-space: nowrap;
+}
+
+/* ===================================
+   会社概要表
+=================================== */
+table.co {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+table.co tr th {
+  background: var(--gray-bg);
+  color: var(--navy);
+  padding: 5px 8px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 1px solid var(--gray-l);
+  width: 30%;
+  vertical-align: top;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7.5pt;
+}
+table.co tr td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--gray-l);
+  vertical-align: top;
+  line-height: 1.6;
+  font-size: 8pt;
+}
+
+/* ===================================
+   サイドカラム
+=================================== */
+.side-section {
+  margin-bottom: 5mm;
+}
+.side-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--teal);
+  display: inline-block;
+  padding: 1px 8px;
+  margin-bottom: 5px;
+  letter-spacing: .3px;
+}
+
+/* イベントボックス */
+.event-box {
+  border: 1px solid var(--gray-l);
+  border-top: 2px solid var(--teal);
+  padding: 8px 10px;
+  background: var(--gray-bg);
+  font-size: 8pt;
+}
+.event-box .ev-title {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 8.5pt;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+.event-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+.event-key {
+  color: var(--teal);
+  font-weight: 700;
+  font-family: "Noto Sans JP", sans-serif;
+  min-width: 36px;
+  font-size: 7.5pt;
+  white-space: nowrap;
+}
+.media-invite {
+  background: var(--white);
+  border-left: 2px solid var(--teal);
+  padding: 5px 7px;
+  margin-top: 6px;
+  font-size: 7.5pt;
+  color: var(--gray-d);
+  line-height: 1.6;
+}
+
+/* URLリスト */
+.url-list {
+  font-size: 7pt;
+  line-height: 1.0;
+}
+.url-list .url-item {
+  padding: 3px 0;
+  border-bottom: 1px dotted var(--gray-l);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.url-list .url-item:last-child { border-bottom: none; }
+.url-list .ul-label {
+  color: var(--gray-d);
+  font-family: "Noto Sans JP", sans-serif;
+}
+.url-list .ul-url {
+  color: var(--teal);
+  word-break: break-all;
+  font-size: 7pt;
+}
+
+/* リンク共通 */
+a {
+  color: var(--teal);
+  text-decoration: none;
+  word-break: break-all;
+}
+a:hover { text-decoration: underline; }
+
+/* ===================================
+   注記
+=================================== */
+.footnote {
+  font-size: 7pt;
+  color: var(--gray-m);
+  line-height: 1.7;
+  border-top: 1px solid var(--gray-l);
+  padding-top: 5px;
+  margin-top: 5mm;
+}
+
+/* ===================================
+   P2 フッター
+=================================== */
+.p2-footer {
+  padding: 2mm 16mm;
+  border-top: 1px solid var(--gray-l);
+  display: flex;
+  justify-content: space-between;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 6.5pt;
+  color: var(--gray-m);
+}
+
+/* ===================================
+   印刷設定
+=================================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* 色・背景の強制印刷 */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* P1: コンテンツが収まるよう余白を縮小 */
+  .headline-area {
+    padding: 7mm 18mm 6mm;
+  }
+  .headline-main {
+    font-size: 15pt;
+  }
+  .body-area {
+    padding: 0 18mm;
+    flex: 1;
+    overflow: hidden;
+  }
+  .section {
+    margin: 5mm 0 0;
+    padding-bottom: 4mm;
+  }
+  .angle-item {
+    padding: 5px 8px;
+  }
+  .angle-title {
+    font-size: 8.5pt;
+  }
+  .angle-body {
+    font-size: 7.5pt;
+  }
+  .fact-item {
+    padding: 6px 8px;
+  }
+  .fact-num {
+    font-size: 15pt;
+  }
+  .fact-label {
+    font-size: 7pt;
+  }
+  .profile-bio, .profile-quote {
+    font-size: 8pt;
+  }
+  .contact-footer {
+    padding: 4mm 18mm;
+  }
+
+  /* P2: 余白縮小 */
+  .body-area[style] {
+    padding-top: 4mm !important;
+  }
+  .p2-header {
+    padding: 3mm 18mm 3mm;
+  }
+  .side-section {
+    margin-bottom: 4mm;
+  }
+  .event-box {
+    padding: 6px 8px;
+    font-size: 7.5pt;
+  }
+  table.survey td, table.survey th {
+    padding: 4px 6px;
+    font-size: 7.5pt;
+  }
+  table.co td, table.co th {
+    padding: 4px 6px;
+    font-size: 7.5pt;
+  }
+  .url-list .url-item {
+    padding: 3px 0;
+  }
+  .footnote {
+    margin-top: 3mm;
+    font-size: 6.5pt;
+  }
+  .p2-footer {
+    padding: 3mm 18mm;
+  }
+
+  /* 改ページ防止 */
+  .angle-item, .facts, table.survey, table.co, .event-box { break-inside: avoid; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ==================================================
+     PAGE 1 ── 取材提案
+================================================== -->
+<div class="sheet">
+
+  <div class="topbar">
+    <span class="topbar-label">MEDIA NEWSLETTER　報道関係者各位</span>
+    <span class="topbar-date">2026年5月1日　株式会社LIFEFUND</span>
+  </div>
+  <div class="accent-line"></div>
+
+  <!-- 大見出し -->
+  <div class="headline-area">
+    <div class="headline-tag">取材のご提案</div>
+    <div class="headline-main">
+      建築業界「AI活用100本ノック」を公開します<br>
+      <span style="font-size:13pt; font-weight:400;">――現場で試してきた100のAI活用事例</span>
+    </div>
+    <div class="headline-sub">
+      株式会社ディー・エヌ・エーの「AI活用100本ノック」に触発された静岡県浜松市の工務店が、建築現場の試行錯誤をまとめた事例集100本を2026年5月に一般公開。同社が運営する建築AI経営研究会による建築業界経営者を対象とした調査では、中小工務店発・業界横断のAI普及という動きとして取材いただける素材です。
+    </div>
+  </div>
+
+  <div class="body-area">
+
+    <!-- 取材切り口 -->
+    <div class="section">
+      <div class="section-head teal">この素材で書ける記事の切り口</div>
+      <div class="angles">
+        <div class="angle-item">
+          <div class="angle-num">切り口 1　現実性</div>
+          <div class="angle-title">建設業の9割がAIを「会社として使えていない」──期待と実行の間にある溝</div>
+          <div class="angle-body">建築業界経営者53名の調査で、AI全社展開に至っていない企業が90.6%。「武器になると確信しているが使いこなせない」と答えた経営者が56.6%にのぼる。期待感だけが先行し、組織への浸透が進まない構造的な課題を数字と現場の声で描ける。</div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">切り口 2　時事性</div>
+          <div class="angle-title">人手不足・市場縮小・競争激化──追い詰められた工務店がAIに賭けた理由</div>
+          <div class="angle-body">2024年問題（時間外労働規制）と職人不足が重なる建設業で、「AIを使わなければ会社が変われない」と決断した経営者の実話。少子化による住宅市場縮小も重なり、経営効率化を迫られる中小工務店の生き残り戦略として取材できる。</div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">切り口 3　独自性</div>
+          <div class="angle-title">DeNAの「100本ノック」を建築現場に移植した工務店──業界を越えた知の連鎖</div>
+          <div class="angle-body">大手IT企業の取り組みが、全く異なる業界の中小企業に自発的に波及した事例。「触発された」という言葉で始まった3ヶ月の試行錯誤が、設計・施工・営業・経理にわたる100本の事例として結実した経緯を追える。</div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">切り口 4　読者実利</div>
+          <div class="angle-title">建築特化のAIプロンプト100本を無償公開──今日から使える実践集</div>
+          <div class="angle-body">登録不要・完全無償で公開されたプロンプト集は、建築業に関わる読者が明日の業務にそのまま使える内容。「完成品ではなく現時点の記録」と明言しており、読者が自社にアレンジする前提で設計されている点も特徴。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- キーファクト -->
+    <div class="section">
+      <div class="section-head">取材に使えるキーデータ（建築AI経営実態調査2026 n=53）</div>
+      <div class="facts">
+        <div class="fact-item">
+          <span class="fact-num">90.6%</span>
+          <span class="fact-label">AIを全社展開<br>できていない経営者</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">51%</span>
+          <span class="fact-label">「何から始めるか<br>わからない」が最大の壁</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">56.6%</span>
+          <span class="fact-label">「武器になると確信<br>しているが使いこなせない」</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">100本</span>
+          <span class="fact-label">建築特化の<br>AI活用事例を公開</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:8px; font-family:'Noto Sans JP',sans-serif; font-size:8pt;">
+        <a href="https://kenchikuaikeiei.github.io/ai-prompts/100knock.pdf" target="_blank" class="link-btn"
+           style="flex:1; display:block; background:#eaf4f4; border:1px solid #007b7b; border-radius:3px; padding:6px 10px; color:#007b7b; text-decoration:none; text-align:center; font-weight:700;">
+          ▶ 100本ノック（PDF）を開く
+        </a>
+        <a href="https://kenchikuaikeiei.github.io/ai-prompts/kenchikuai_report_2026.html" target="_blank" class="link-btn"
+           style="flex:1; display:block; background:#eaf4f4; border:1px solid #007b7b; border-radius:3px; padding:6px 10px; color:#007b7b; text-decoration:none; text-align:center; font-weight:700;">
+          ▶ 調査レポートを開く
+        </a>
+      </div>
+    </div>
+
+    <!-- 取材できる人物 -->
+    <div class="section">
+      <div class="section-head">取材いただける人物</div>
+      <div class="profile">
+        <div class="profile-text">
+          <div class="profile-name">白都 卓磨（はくと たくま）</div>
+          <div class="profile-role">株式会社LIFEFUND 代表取締役　建築AI経営研究会 主宰</div>
+          <div class="profile-bio">静岡県浜松市を拠点に注文住宅・不動産・リノベーションをワンストップで手がける現役経営者（年間100棟・売上27.1億円・社員62名）。2024年問題を機にAI導入を決断し、「AIを作るのではなく現場で使いこなす」を方針に3ヶ月で社内100事例を積み上げた。ホリエモンAI学校 建築校を設立し、CROSS FMにて堀江貴文氏と対談実績あり。</div>
+          <div class="profile-quote">「今回の100の事例も、磨き込まれた完成品ではなく、現時点での記録のようなものです。AIの使い方は日々変わる。半年後・1年後には別の方法が当たり前になっているかもしれない、という前提でご覧いただければと思っています。」</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body-area -->
+
+  <!-- 取材連絡先フッター -->
+  <div class="contact-footer">
+    <div>
+      <div class="contact-footer-label">取材・お問い合わせ</div>
+      <div class="contact-footer-info">
+        株式会社LIFEFUND　広報担当　<strong>石野 祐太朗</strong>
+      </div>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <span class="contact-item-label">EMAIL</span>
+        <span class="contact-item-val">pr.lifefund@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">TEL</span>
+        <span class="contact-item-val">080-7157-8931</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sheet P1 -->
+
+
+<!-- ==================================================
+     PAGE 2 ── 背景資料
+================================================== -->
+<div class="sheet">
+  <div class="accent-line"></div>
+
+  <div class="p2-header">
+    <div class="p2-title">背景資料　／　調査データ・会社概要・関連リンク</div>
+    <div class="p2-parent">株式会社LIFEFUND　報道向けニュースレター　2026年5月</div>
+  </div>
+
+  <div class="body-area" style="padding-top: 5mm;">
+    <div class="two-col">
+
+      <!-- 左カラム：調査・会社 -->
+      <div>
+
+        <div class="section">
+          <div class="section-head teal">建築AI経営実態調査2026　主要結果</div>
+          <p style="font-size:7pt; color:#555; margin-bottom:3px; font-family:'Noto Sans JP',sans-serif;">実施：建築AI経営研究会　2026年3月　対象：建築・建設業経営者53名</p>
+          <table class="survey">
+            <thead>
+              <tr>
+                <th style="width:42%">設問テーマ</th>
+                <th>主要回答</th>
+                <th>割合</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AI全社展開に至っていない</td>
+                <td>Level1（個人利用のみ）＋Level2の合計</td>
+                <td class="num">90.6%</td>
+              </tr>
+              <tr>
+                <td>AIを経営に活かす最大の壁</td>
+                <td>「優先順位・何から始めるかが見えない」</td>
+                <td class="num">51.0%</td>
+              </tr>
+              <tr>
+                <td>効果を定量的に把握できていない</td>
+                <td>感覚のみ／把握できていない（合計）</td>
+                <td class="num">81.0%</td>
+              </tr>
+              <tr>
+                <td>AIへのスタンス（最多）</td>
+                <td>「武器になると確信しているが使いこなせない」</td>
+                <td class="num">56.6%</td>
+              </tr>
+              <tr>
+                <td>AI人材育成の状況</td>
+                <td>「重要だが何も手を打てていない」</td>
+                <td class="num">52.8%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:7.5pt; color:#555; margin-top:4px; font-family:'Noto Sans JP',sans-serif;">
+            詳細：<a href="https://kenchikuaikeiei.github.io/ai-prompts/kenchikuai_report_2026.html" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/kenchikuai_report_2026.html</a>
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-head">公開資料について</div>
+          <p style="font-size:8pt; line-height:1.7; margin-bottom:5px;">設計・営業・施工・経理それぞれの現場でAIを試した社員の記録を整理したものです。各事例には「業務上の課題」「使ったAIツール」「実際に使ったプロンプト」「やってみた結果」を記載しています。</p>
+          <p style="font-size:8pt; line-height:1.7; margin-bottom:6px;">代表的な事例：Geminiで顧客LINE返信を2分で完成（#001）／間取り図の色付けを自動化（#002）／商談の録音から議事録作成（#005）／設計図面の記載漏れを自動チェック（#054）／工事進捗報告文を1分で生成（#058）ほか全100本。</p>
+          <p style="font-size:8pt; color:#555; font-family:'Noto Sans JP',sans-serif;">
+            本編PDF：<a href="https://kenchikuaikeiei.github.io/ai-prompts/100knock.pdf" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/100knock.pdf</a><br>
+            プロンプト集：<a href="https://kenchikuaikeiei.github.io/ai-prompts/prompts.html" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/prompts.html</a>
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-head">会社概要</div>
+          <table class="co">
+            <tr><th>会社名</th><td>株式会社LIFEFUND（2023年社名変更。旧：有限会社マルハ白都建設）</td></tr>
+            <tr><th>代表</th><td>白都 卓磨（はくと たくま）</td></tr>
+            <tr><th>設立</th><td>2000年</td></tr>
+            <tr><th>所在地</th><td>〒432-8023　静岡県浜松市中央区鴨江3丁目70-23</td></tr>
+            <tr><th>売上高</th><td>27.1億円（2025年実績）</td></tr>
+            <tr><th>社員数</th><td>62名（2025年12月時点）</td></tr>
+            <tr><th>事業</th><td>注文住宅（ARRCH・PG HOUSE）／不動産／相続コンサルティング／AI教育</td></tr>
+            <tr><th>関連</th><td>ホリエモンAI学校 建築校 運営／建築AI経営研究会 主催</td></tr>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- 右カラム：イベント・リンク -->
+      <div>
+
+        <div class="side-section">
+          <div class="side-label">取材機会</div>
+          <div class="event-box">
+            <div class="ev-title">建築AI経営研究会<br>2026年6月2日（火）開催</div>
+            <div class="event-row"><span class="event-key">日時</span><span>6月2日（火）13:00〜17:30</span></div>
+            <div class="event-row"><span class="event-key">会場</span><span>東京駅八重洲口付近<br>／ オンライン同時配信</span></div>
+            <div class="event-row"><span class="event-key">内容</span><span>現場×AIで生産性向上</span></div>
+            <div class="event-row"><span class="event-key">定員</span><span>120名・参加無料</span></div>
+            <div class="event-row"><span class="event-key">URL</span><span style="font-size:7pt; word-break:break-all;"><a href="https://kenchiku-ai.com/260603-2/" target="_blank">https://kenchiku-ai.com/260603-2/</a></span></div>
+            <div class="media-invite">
+              メディア関係者の方には18:00〜の懇親会に特別ご招待いたします。代表への個別インタビューもその場でご調整できます。
+            </div>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-label">ホリエモンAI学校 建築校</div>
+          <div class="event-box">
+            <p style="font-size:8pt; line-height:1.65; margin-bottom:4px;">日本唯一の住宅会社が運営する建築業特化型AIスクール。堀江貴文氏プロデュースのもと2025年に設立。</p>
+            <p style="font-size:7.5pt; word-break:break-all;"><a href="https://kenchiku-ai.com/" target="_blank">https://kenchiku-ai.com/</a></p>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-label">関連リンク</div>
+          <div class="url-list">
+            <div class="url-item">
+              <span class="ul-label">100本ノック（PDF）</span>
+              <span class="ul-url"><a href="https://kenchikuaikeiei.github.io/ai-prompts/100knock.pdf" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/100knock.pdf</a></span>
+            </div>
+            <div class="url-item">
+              <span class="ul-label">プロンプト集（Web版）</span>
+              <span class="ul-url"><a href="https://kenchikuaikeiei.github.io/ai-prompts/prompts.html" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/prompts.html</a></span>
+            </div>
+            <div class="url-item">
+              <span class="ul-label">調査レポート</span>
+              <span class="ul-url"><a href="https://kenchikuaikeiei.github.io/ai-prompts/kenchikuai_report_2026.html" target="_blank">https://kenchikuaikeiei.github.io/ai-prompts/kenchikuai_report_2026.html</a></span>
+            </div>
+            <div class="url-item">
+              <span class="ul-label">LIFEFUND 公式サイト</span>
+              <span class="ul-url"><a href="https://lifefund-recruit.com/" target="_blank">https://lifefund-recruit.com/</a></span>
+            </div>
+            <div class="url-item">
+              <span class="ul-label">プレスリリース（PR TIMES）</span>
+              <span class="ul-url"><a href="https://prtimes.jp/main/html/searchrlp/company_id/160136" target="_blank">https://prtimes.jp/main/html/searchrlp/company_id/160136</a></span>
+            </div>
+            <div class="url-item">
+              <span class="ul-label">DeNA「AI活用100本ノック」（参考）</span>
+              <span class="ul-url"><a href="https://fullswing.dena.com/pdf/AI_100tips_slide.pdf" target="_blank">https://fullswing.dena.com/pdf/AI_100tips_slide.pdf</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-label">取材窓口</div>
+          <div class="event-box" style="font-size:8pt; line-height:1.75;">
+            <strong style="font-size:9pt;">石野 祐太朗（いしの ゆうたろう）</strong><br>
+            株式会社LIFEFUND　広報担当<br>
+            <a href="mailto:pr.lifefund@gmail.com">pr.lifefund@gmail.com</a><br>
+            080-7157-8931
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /two-col -->
+
+    <div class="footnote">
+      ※ 本資料の転載・引用の際は「株式会社LIFEFUND／建築AI経営研究会（2026年5月）」と出典を明記ください。　※ 弊社は本資料の公開に先立ち、株式会社ディー・エヌ・エーにデザイン・構成・内容について事前確認を行っておりますが、株式会社ディー・エヌ・エーが本件に関して公にコメントをする予定はございません。取材・報道の際にはご留意ください。
+    </div>
+
+  </div><!-- /body-area -->
+
+  <div class="p2-footer">
+    <span>株式会社LIFEFUND　〒432-8023 静岡県浜松市中央区鴨江3丁目70-23</span>
+    <span>2 / 2</span>
+  </div>
+
+</div><!-- /sheet P2 -->
+
+</body>
+</html>
