@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>白都卓磨 紹介文集 | 株式会社LIFEFUND</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #2c2a26;
+    --paper: #f5f1e8;
+    --paper-soft: #ebe5d6;
+    --paper-dark: #d9d0bc;
+    --washi: #faf6ec;
+    --shu: #b8533a;        /* 朱色 */
+    --shu-deep: #8e3a26;   /* 深い朱 */
+    --kincha: #b08d3e;     /* 金茶 */
+    --sumi: #1c1a17;       /* 墨 */
+    --rikyu: #6b6147;      /* 利休色 */
+    --shadow-paper: 0 1px 2px rgba(60, 50, 30, 0.06), 0 8px 24px rgba(60, 50, 30, 0.08);
+    --shadow-deep: 0 2px 4px rgba(60, 50, 30, 0.08), 0 16px 40px rgba(60, 50, 30, 0.12);
+    --serif: 'Shippori Mincho', 'Noto Serif JP', 'Yu Mincho', 'YuMincho', serif;
+    --serif-en: 'Cormorant Garamond', 'Shippori Mincho', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.85;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(176, 141, 62, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(184, 83, 58, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  /* 和紙テクスチャ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(60, 50, 30, 0.012) 2px, rgba(60, 50, 30, 0.012) 3px),
+      repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(60, 50, 30, 0.008) 2px, rgba(60, 50, 30, 0.008) 3px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== ヘッダー ===== */
+  .site-header {
+    padding: 80px 0 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .site-header::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--rikyu), transparent);
+    margin: 40px auto 0;
+  }
+
+  .crest {
+    display: inline-block;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .crest-mark {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--shu);
+    border: 1px solid var(--shu);
+    padding: 8px 20px 8px 24px;
+    display: inline-block;
+    background: var(--washi);
+    position: relative;
+  }
+
+  .site-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--sumi);
+    margin: 24px 0 12px;
+    line-height: 1.4;
+  }
+
+  .site-title .accent {
+    color: var(--shu);
+    font-weight: 700;
+  }
+
+  .site-subtitle {
+    font-family: var(--serif-en);
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    color: var(--rikyu);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .site-description {
+    font-size: 14px;
+    color: var(--rikyu);
+    margin-top: 24px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== コントロールパネル ===== */
+  .controls {
+    background: var(--washi);
+    border: 1px solid var(--paper-dark);
+    padding: 28px 32px;
+    margin: 32px 0 24px;
+    box-shadow: var(--shadow-paper);
+    position: relative;
+  }
+
+  .controls::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--shu) 0%, var(--shu) 30%, var(--kincha) 30%, var(--kincha) 60%, var(--rikyu) 60%, var(--rikyu) 100%);
+  }
+
+  .search-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .search-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--rikyu);
+    white-space: nowrap;
+    min-width: 60px;
+  }
+
+  .search-box {
+    flex: 1;
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--paper-dark);
+    border-bottom: 2px solid var(--rikyu);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .search-input:focus {
+    border-bottom-color: var(--shu);
+    background: #fff;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--rikyu);
+    pointer-events: none;
+  }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .filter-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--rikyu);
+    white-space: nowrap;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--paper-dark);
+    background: var(--paper);
+  }
+
+  .filter-btn {
+    padding: 8px 18px;
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--paper-dark);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .filter-btn:last-child { border-right: none; }
+
+  .filter-btn:hover {
+    background: var(--paper-soft);
+    color: var(--shu);
+  }
+
+  .filter-btn.active {
+    background: var(--sumi);
+    color: var(--washi);
+  }
+
+  .filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 2px;
+    background: var(--shu);
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 0;
+    margin-top: 20px;
+    border-top: 1px dashed var(--paper-dark);
+    font-size: 13px;
+    color: var(--rikyu);
+    letter-spacing: 0.1em;
+  }
+
+  .count-display .count-num {
+    color: var(--shu);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 4px;
+  }
+
+  /* ===== 紹介文カード ===== */
+  .intro-grid {
+    display: grid;
+    gap: 28px;
+    margin: 40px 0;
+  }
+
+  .intro-card {
+    background: var(--washi);
+    border: 1px solid var(--paper-dark);
+    padding: 36px 40px 32px;
+    position: relative;
+    box-shadow: var(--shadow-paper);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .intro-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--shu) 0%, var(--shu) 30%, var(--kincha) 30%, var(--kincha) 70%, var(--rikyu) 70%);
+  }
+
+  .intro-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-deep);
+    border-color: var(--rikyu);
+  }
+
+  .intro-card.hidden {
+    display: none;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--paper-dark);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card-number {
+    font-family: var(--serif-en);
+    font-size: 14px;
+    color: var(--rikyu);
+    letter-spacing: 0.1em;
+    font-style: italic;
+  }
+
+  .scene-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 4px 12px;
+    background: var(--sumi);
+    color: var(--washi);
+    font-weight: 500;
+  }
+
+  .scene-tag.shanai { background: #2d4a3e; }
+  .scene-tag.shagai { background: var(--shu-deep); }
+  .scene-tag.media { background: #3d4a5e; }
+  .scene-tag.seminar { background: var(--kincha); color: var(--sumi); }
+  .scene-tag.profile { background: var(--rikyu); }
+
+  .length-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 4px 10px;
+    border: 1px solid var(--rikyu);
+    color: var(--rikyu);
+  }
+
+  .char-count {
+    font-family: var(--serif-en);
+    font-size: 13px;
+    color: var(--rikyu);
+    font-style: italic;
+  }
+
+  .copy-btn {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    padding: 8px 20px;
+    background: transparent;
+    color: var(--sumi);
+    border: 1px solid var(--sumi);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .copy-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--sumi);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .copy-btn span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+
+  .copy-btn:hover::before { transform: translateX(0); }
+  .copy-btn:hover span { color: var(--washi); }
+
+  .copy-btn.copied {
+    background: var(--shu);
+    color: var(--washi);
+    border-color: var(--shu);
+  }
+  .copy-btn.copied::before { transform: translateX(0); background: var(--shu); }
+  .copy-btn.copied span { color: var(--washi); }
+
+  .card-body {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    white-space: pre-wrap;
+  }
+
+  .card-body strong {
+    color: var(--sumi);
+    font-weight: 600;
+  }
+
+  .card-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 8px 0;
+  }
+
+  .card-body ul li {
+    position: relative;
+    padding-left: 18px;
+    line-height: 1.9;
+  }
+
+  .card-body ul li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--shu);
+    font-weight: 700;
+  }
+
+  .card-body ul ul li::before {
+    content: '○';
+    font-size: 9px;
+    top: 7px;
+    color: var(--rikyu);
+  }
+
+  .card-footer {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--paper-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .source-link {
+    font-size: 12px;
+    color: var(--rikyu);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid transparent;
+    transition: all 0.25s ease;
+    word-break: break-all;
+  }
+
+  .source-link:hover {
+    color: var(--shu);
+    border-bottom-color: var(--shu);
+  }
+
+  .source-link::before {
+    content: '出典 ';
+    color: var(--rikyu);
+    margin-right: 4px;
+  }
+
+  /* ===== 関連リンクセクション ===== */
+  .related-section {
+    margin: 80px 0 60px;
+    padding: 48px 40px;
+    background: var(--washi);
+    border: 1px solid var(--paper-dark);
+    position: relative;
+    box-shadow: var(--shadow-paper);
+  }
+
+  .related-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--shu), transparent);
+  }
+
+  .related-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--sumi);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+    text-align: center;
+    position: relative;
+  }
+
+  .related-title-en {
+    font-family: var(--serif-en);
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--shu);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  .related-list {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+
+  .related-item {
+    padding: 20px 24px;
+    background: var(--paper);
+    border-left: 3px solid var(--kincha);
+    transition: all 0.3s ease;
+  }
+
+  .related-item:hover {
+    border-left-color: var(--shu);
+    background: #fff;
+    transform: translateX(4px);
+  }
+
+  .related-item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--sumi);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .related-item-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .related-item-link {
+    font-family: var(--serif-en);
+    font-size: 12px;
+    color: var(--shu);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    word-break: break-all;
+    border-bottom: 1px dotted var(--shu);
+  }
+
+  .related-item-link:hover {
+    color: var(--shu-deep);
+    border-bottom-style: solid;
+  }
+
+  /* ===== トースト ===== */
+  .toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: var(--sumi);
+    color: var(--washi);
+    padding: 14px 32px;
+    font-family: var(--serif);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    box-shadow: var(--shadow-deep);
+    z-index: 100;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid var(--shu);
+  }
+
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ===== 空状態 ===== */
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--rikyu);
+    display: none;
+  }
+
+  .empty-state.show { display: block; }
+
+  .empty-state-mark {
+    font-size: 48px;
+    color: var(--paper-dark);
+    margin-bottom: 16px;
+    font-family: var(--serif);
+  }
+
+  .empty-state-text {
+    font-size: 15px;
+    letter-spacing: 0.15em;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer {
+    margin-top: 100px;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--paper-dark);
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--rikyu);
+    letter-spacing: 0.2em;
+  }
+
+  .footer-mark {
+    font-family: var(--serif-en);
+    font-size: 11px;
+    color: var(--rikyu);
+    letter-spacing: 0.3em;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .site-header { padding: 56px 0 32px; }
+    .controls { padding: 20px; }
+    .search-row { flex-direction: column; align-items: stretch; gap: 8px; }
+    .filter-row { flex-direction: column; gap: 16px; }
+    .filter-group { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .filter-buttons { width: 100%; }
+    .filter-btn { flex: 1; padding: 10px; }
+    .intro-card { padding: 24px 20px; }
+    .card-header { flex-direction: column; align-items: stretch; }
+    .copy-btn { width: 100%; padding: 12px; }
+    .related-section { padding: 32px 20px; }
+    .stats-bar { flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+
+  /* スクロール時のフェードイン */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .intro-card {
+    animation: fadeInUp 0.6s ease backwards;
+  }
+
+  .intro-card:nth-child(1) { animation-delay: 0.05s; }
+  .intro-card:nth-child(2) { animation-delay: 0.1s; }
+  .intro-card:nth-child(3) { animation-delay: 0.15s; }
+  .intro-card:nth-child(4) { animation-delay: 0.2s; }
+  .intro-card:nth-child(5) { animation-delay: 0.25s; }
+  .intro-card:nth-child(n+6) { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="crest">
+      <span class="crest-mark">代 表 取 締 役</span>
+    </div>
+    <h1 class="site-title">白都 卓磨 <span class="accent">紹介文集</span></h1>
+    <p class="site-subtitle">Hakuto Takuma — Profile Archive</p>
+    <p class="site-description">株式会社LIFEFUND ／ 用途に応じてご活用ください</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- コントロールパネル -->
+  <section class="controls">
+    <div class="search-row">
+      <span class="search-label">検 索</span>
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="キーワードで紹介文を検索…（例：AI、相続、ARRCH）">
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">シ ー ン</span>
+        <div class="filter-buttons" data-filter-type="scene">
+          <button class="filter-btn active" data-filter="all">すべて</button>
+          <button class="filter-btn" data-filter="media">メディア</button>
+          <button class="filter-btn" data-filter="seminar">セミナー</button>
+          <button class="filter-btn" data-filter="profile">プロフィール</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">文 字 数</span>
+        <div class="filter-buttons" data-filter-type="length">
+          <button class="filter-btn active" data-filter="all">すべて</button>
+          <button class="filter-btn" data-filter="short">短文</button>
+          <button class="filter-btn" data-filter="medium">中文</button>
+          <button class="filter-btn" data-filter="long">長文</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="count-display">
+        <span>表示中</span>
+        <span class="count-num" id="visibleCount">11</span>
+        <span>／ 全</span>
+        <span class="count-num">11</span>
+        <span>件</span>
+      </div>
+      <div>
+        <span style="font-family: var(--serif-en); font-style: italic;">短文: ~150字　中文: ~250字　長文: 250字以上</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 紹介文カード -->
+  <section class="intro-grid" id="introGrid">
+
+    <!-- 1. 社長名鑑 -->
+    <article class="intro-card" data-scene="media" data-search="社長名鑑 創業 経緯 ビジョン NSC名古屋デザイン工科 遠州鉄道 不動産事業本部 現場監督 設計 LIFEFUND ARRCH PG HOUSE 物件王国">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 01</span>
+          <span class="scene-tag media">メディア</span>
+          <span class="length-tag length-long">長文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-1"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-1">白都卓磨／1988年静岡県浜松市生まれ。NSC名古屋デザイン工科カレッジ卒業後、遠州鉄道に入社。不動産事業本部に配属され、現場監督・設計を経験。2011年に独立し代表取締役に就任。2023年に社名をLIFEFUNDへ変更。建築・不動産・相続の3分野で、建築家とつくる「ARRCH」、超耐震×自由設計の「PG HOUSE」、不動産仲介の「物件王国」などを展開し、年間100棟弱を手がける地域トップクラスのビルダーへと成長。10年間で売上は10倍、粗利は11倍に拡大し、2025年には年商22億円を超える。</div>
+      <div class="card-footer">
+        <a href="https://shachomeikan.jp/industry_article/4855" target="_blank" rel="noopener" class="source-link">社長名鑑</a>
+      </div>
+    </article>
+
+    <!-- 2. 新建ハウジング -->
+    <article class="intro-card" data-scene="media" data-search="新建ハウジング AI 全領域 アナログ 業界 構造 変革 ビジョン 人づくり まちづくり 業界の未来">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 02</span>
+          <span class="scene-tag media">メディア</span>
+          <span class="length-tag length-long">長文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-2"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-2">1988年静岡県浜松市生まれ。建築・不動産業界での経験を経て、2015年に新築事業を立ち上げ、株式会社LIFEFUNDを設立。わずか10年で年間100棟を手がける地域トップビルダーへと成長させた。建築家住宅「ARRCH」や高性能住宅「PGHOUSE」を展開し、設計・施工・営業・採用・マーケティングなど全領域にAIを導入。アナログな住宅業界の非効率を構造から変革中。「あらゆる人が喜びある人生を叶えられる地域社会をつくる」というビジョンのもと、事業を“家づくり”にとどまらず“人づくり・まちづくり”へと発展させている。AIを人の可能性を広げる力として活用し、人が喜びをもって生きられる社会の実現を目指し、地域から業界の未来をデザインしている。</div>
+      <div class="card-footer">
+        <a href="https://www.s-housing.jp/archives/416428" target="_blank" rel="noopener" class="source-link">新建ハウジング</a>
+      </div>
+    </article>
+
+    <!-- 3. 物件王国セミナー -->
+    <article class="intro-card" data-scene="seminar" data-search="物件王国 セミナー 実績 注文住宅 114棟 27.1億 日本一 工務店 建築業界 スタンダード 数字">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 03</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-long">長文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-3"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-3">株式会社LIFEFUND  代表取締役
+白都 卓磨氏
+1988年静岡県生まれ。地元大手建築会社での現場監督・設計経験を経て2011年に独立、2015年に同社を設立。注文住宅「ARRCH」や「PGHOUSE」を展開し、わずか10年で年100棟超の地域トップビルダーへ急成長。2025年には注文住宅114棟、年商27.1億円を達成した。 現在は設計・施工から採用・マーケティングまで、全領域にAIを導入。アナログな住宅業界の構造を根本から変革している。不動産仲介や相続コンサルなど幅広く展開し、「日本一AIを活用する工務店」として、建築業界の新たなスタンダードを確立すべく挑戦を続けている。</div>
+      <div class="card-footer">
+        <a href="https://www.bukkenking.com/seminar/4282/" target="_blank" rel="noopener" class="source-link">物件王国セミナー</a>
+      </div>
+    </article>
+
+    <!-- 4. 建築AI -->
+    <article class="intro-card" data-scene="media" data-search="建築AI 多角的 物件王国 つながる相続 総合ブランド 実業家 経営モデル 次世代">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 04</span>
+          <span class="scene-tag media">メディア</span>
+          <span class="length-tag length-medium">中文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-4"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-4">白都 卓磨 (Hakuto Takuma)
+株式会社LIFEFUND 代表取締役
+1988年静岡県浜松市生まれ。建築・不動産業界での経験を経て、2015年に株式会社LIFEFUNDを設立。わずか10年で年間100棟を手がける地域トップビルダーへと成長させる。
+建築家住宅「ARRCH」や高性能住宅「PGHOUSE」に加え、不動産仲介・買取再販事業「物件王国」、相続コンサルティング事業「つながる相続」など多角的に展開。
+建築・不動産・相続を横断する総合ブランドを築き上げ、アナログな業界構造の変革に挑む実業家。設計から施工、マーケティングに至る全領域にAIを実装し、次世代の経営モデルを確立している。</div>
+      <div class="card-footer">
+        <a href="https://kenchiku-ai.com/2603-2/" target="_blank" rel="noopener" class="source-link">建築AI</a>
+      </div>
+    </article>
+
+    <!-- 5. アンシン -->
+    <article class="intro-card" data-scene="seminar" data-search="アンシン 新築 リノベーション 不動産相続 3事業 静岡県 No.1 生産性向上 人材育成 シンプル 短文">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 05</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-short">短文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-5"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-5">株式会社 LIFEFUND
+代表取締役
+白都  卓磨 氏
+地元大手建築会社にて現場監督や設計を経験後、2011年に独立し現株式会社LIFEFUNDを設立。新築・リノベーション・不動産相続の3事業を展開し、新築は年間100棟超。日本一AIを活用する工務店を目指して生産性向上と人材育成を推進し、静岡県No.1企業の実現に向け挑戦を続けている。</div>
+      <div class="card-footer">
+        <a href="https://www.anshin.co.jp/event/770" target="_blank" rel="noopener" class="source-link">アンシン</a>
+      </div>
+    </article>
+
+    <!-- 6. DL Consultant -->
+    <article class="intro-card" data-scene="profile" data-search="DLコンサルタント プロフィール 300棟 20億 経営セミナー講師 全国登壇 大相続時代 相続コンサルタント 資格 2級施工管理士 静岡県 鴨江">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 06</span>
+          <span class="scene-tag profile">プロフィール</span>
+          <span class="length-tag length-medium">中文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-6"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-6"><strong>プロフィール</strong>
+株式会社LIFEFUND 代表取締役。 浜松市で住宅・不動産事業を展開し、300棟超の住宅引渡実績と年商約20億円。経営セミナー講師として全国で登壇するほか、大相続時代を見据え不動産相続事業にも参入。実務に強い相続コンサルタントとして、地域資産の最適承継を支援している。
+
+<strong>保有資格</strong>
+・国家資格　2級施工管理士
+
+<strong>対応エリア</strong>
+静岡県
+
+<strong>所属企業</strong>
+株式会社LIFEFUND ARRCH鴨江オフィス
+本社：静岡県浜松市中央区鴨江3丁目70番23号</div>
+      <div class="card-footer">
+        <a href="https://dl-consultant.jp/?author=6" target="_blank" rel="noopener" class="source-link">DL Consultant</a>
+      </div>
+    </article>
+
+    <!-- 7. PR TIMES / ホリエモンAI学校建築校 -->
+    <article class="intro-card" data-scene="seminar" data-search="PR TIMES ホリエモンAI学校 建築校 登壇者 ARRCH PGHOUSE URL付き ビジョン 人づくり まちづくり">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 07</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-long">長文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-7"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-7"><strong>登壇者紹介</strong>
+白都 卓磨 氏
+株式会社LIFEFUND 代表取締役
+
+《建築家と建てる家ARRCH》
+https://www.arrch.net/
+《性能コスパ住宅PGHOUSE》
+https://hamamatsu.pg-house.jp/
+《ホリエモンAI学校建築校》
+https://kenchiku-ai.com/
+
+1988年静岡県浜松市生まれ。建築・不動産業界での経験を経て、2015年に新築事業を立ち上げ、株式会社LIFEFUNDを設立。わずか10年で年間100棟を手がける地域トップビルダーへと成長させた。建築家住宅「ARRCH」や高性能住宅「PGHOUSE」を展開し、設計・施工・営業・採用・マーケティングなど全領域にAIを導入。アナログな住宅業界の非効率を構造から変革中。 「あらゆる人が喜びある人生を叶えられる地域社会をつくる」というビジョンのもと、事業を“家づくり”にとどまらず“人づくり・まちづくり”へと発展させている。AIを人の可能性を広げる力として活用し、人が喜びをもって生きられる社会の実現を目指し、地域から業界の未来をデザインしている。</div>
+      <div class="card-footer">
+        <a href="https://prtimes.jp/main/html/rd/p/000000013.000160136.html" target="_blank" rel="noopener" class="source-link">PR TIMES（ホリエモンAI学校建築校）</a>
+      </div>
+    </article>
+
+    <!-- 8. JGBA -->
+    <article class="intro-card" data-scene="seminar" data-search="JGBA 登壇者 つながる相続 地域総合ブランド 簡潔">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 08</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-medium">中文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-8"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-8">株式会社LIFEFUND 代表取締役
+白都 卓磨
+
+1988年静岡県浜松市生まれ。建築・不動産業界での経験を経て、2015年に新築事業を立ち上げ、株式会社LIFEFUNDを設立。10年で年間100棟の地域トップビルダーへと成長させる。建築住宅「ARRCH」や高性能住宅「PGHOUSE」を展開し設計・施工・営業・採用・マーケティングなど全領域にAIを導入。相続コンサルティング事業「つながる相続」を立ち上げ、建築・不動産・相続を横断する地域総合ブランドとして発展を続けている。</div>
+      <div class="card-footer">
+        <a href="https://jgba.net/event/2026-2-10-jgba-seminar/" target="_blank" rel="noopener" class="source-link">JGBA セミナー</a>
+      </div>
+    </article>
+
+    <!-- 9. 短文 -->
+    <article class="intro-card" data-scene="profile" data-search="短文 簡潔 シンプル 新築 リノベーション 不動産相続 静岡県 No.1">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 09</span>
+          <span class="scene-tag profile">プロフィール</span>
+          <span class="length-tag length-short">短文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-9"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-9">地元大手建築会社にて現場監督や設計を経験後、2011年に独立し現株式会社LIFEFUNDを設立。新築・リノベーション・不動産相続の3事業を展開し、新築は年間100棟超。日本一AIを活用する工務店を目指して生産性向上と人材育成を推進し、静岡県No.1企業の実現に向け挑戦を続けている。</div>
+      <div class="card-footer">
+        <span class="source-link" style="border: none; cursor: default;">汎用短文版</span>
+      </div>
+    </article>
+
+    <!-- 10. ホリエモンAI学校 -->
+    <article class="intro-card" data-scene="seminar" data-search="ホリエモンAI学校 セミナー 300棟 20億 ARRCH PG HOUSE 生成AI DX 工務店 建築事業者 課題解決">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 10</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-long">長文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-10"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-10"><strong>登壇者プロフィール</strong>
+■株式会社LIFEFUND代表取締役｜白都卓磨
+
+浜松市に拠点を置く株式会社LIFEFUND 代表取締役。
+同社はこれまでに300棟を超える住宅の引き渡し実績を誇り、2024年には年商約20億円を達成。
+
+＜注文住宅事業ブランド＞
+・建築家とつくる家「ARRCH」
+・超耐震×自由設計「PG HOUSE」
+
+急速に進化する生成AIに大きな可能性を感じ、人手不足や業務効率化に悩む工務店・建築事業者の課題解決に貢献したいという思いから、ホリエモンAI学校「建築校」開校に名乗りを上げた。 自ら先頭に立って生成AIやDXの研究に取り組み、実践事例を社内に積極的に共有することで、社員とともにAI活用を推進。業界の新たな未来を切り拓くべく挑戦を続けている。</div>
+      <div class="card-footer">
+        <span class="source-link" style="border: none; cursor: default;">ホリエモンAI学校セミナー</span>
+      </div>
+    </article>
+
+    <!-- 11. 相続セミナー -->
+    <article class="intro-card" data-scene="seminar" data-search="相続セミナー 箇条書き 住宅事業 不動産事業 相続事業 物件王国 つながる相続 民泊 買取再販">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-number">No. 11</span>
+          <span class="scene-tag seminar">セミナー</span>
+          <span class="length-tag length-medium">中文</span>
+          <span class="char-count" data-count></span>
+        </div>
+        <button class="copy-btn" data-target="text-11"><span>コピーする</span></button>
+      </div>
+      <div class="card-body" id="text-11"><strong>株式会社LIFEFUND 代表取締役／相続コンサルタント</strong>
+<strong>白都 卓磨（はくと たくま）</strong>
+
+・1988年 静岡県浜松市生まれ
+・建築・不動産業界を経て、2015年に（株）LIFEFUNDを設立
+・<strong>住宅事業</strong>
+　○ 年間100棟の地域トップビルダーへ成長
+　○ 建築家とつくる家「ARRCH」
+　○ 高性能住宅「PGHOUSE」
+　○ 設計・施工・営業など全領域にAIを導入
+・<strong>不動産事業</strong>
+　○ 不動産仲介「物件王国」
+　○ 買取再販・収益不動産・民泊事業
+・<strong>相続事業</strong>
+　○ 相続コンサルティング「つながる相続」
+
+建築・不動産・相続を横断する地域総合ブランド</div>
+      <div class="card-footer">
+        <span class="source-link" style="border: none; cursor: default;">相続セミナー紹介文</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- 空状態 -->
+  <div class="empty-state" id="emptyState">
+    <div class="empty-state-mark">無</div>
+    <p class="empty-state-text">該当する紹介文が見つかりませんでした</p>
+  </div>
+
+  <!-- 関連リンク -->
+  <section class="related-section">
+    <p class="related-title-en">Related Interviews & Media</p>
+    <h2 class="related-title">掲 載 メ デ ィ ア ・ 関 連 リ ン ク</h2>
+
+    <ul class="related-list">
+      <li class="related-item">
+        <div class="related-item-title">社長名鑑</div>
+        <p class="related-item-desc">創業の経緯、事業内容、今後のビジョンまで網羅したロングインタビュー記事です。</p>
+        <a href="https://shachomeikan.jp/industry_article/4855" target="_blank" rel="noopener" class="related-item-link">https://shachomeikan.jp/industry_article/4855</a>
+      </li>
+      <li class="related-item">
+        <div class="related-item-title">Japan Quality / Japan Pride</div>
+        <p class="related-item-desc">仕事への想いや原点となるエピソードが掲載されています。</p>
+        <a href="https://japanpride.jp/person/hakuto_takuma/" target="_blank" rel="noopener" class="related-item-link">https://japanpride.jp/person/hakuto_takuma/</a>
+      </li>
+      <li class="related-item">
+        <div class="related-item-title">Wantedly（LIFEFUND公式）</div>
+        <p class="related-item-desc">「『家』を通じて『人生』をつくる」と題した、本人の原点と未来を語る記事です。</p>
+        <a href="https://www.wantedly.com/companies/company_5410460/post_articles/988749" target="_blank" rel="noopener" class="related-item-link">https://www.wantedly.com/companies/company_5410460/post_articles/988749</a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-text">株 式 会 社 ＬＩＦＥＦＵＮＤ</p>
+    <p class="footer-mark">— Profile Archive —</p>
+  </div>
+</footer>
+
+<!-- トースト -->
+<div class="toast" id="toast">紹介文をコピーしました</div>
+
+<script>
+  // ===== 文字数カウントとフィルタ判定 =====
+  document.querySelectorAll('.intro-card').forEach(card => {
+    const body = card.querySelector('.card-body');
+    // 改行・スペースを除いた純粋な文字数
+    const text = body.innerText || body.textContent;
+    const charCount = text.replace(/\s/g, '').length;
+
+    const countDisplay = card.querySelector('[data-count]');
+    if (countDisplay) {
+      countDisplay.textContent = charCount + '字';
+    }
+
+    // length属性を付与
+    let lengthCategory = 'medium';
+    if (charCount < 180) lengthCategory = 'short';
+    else if (charCount >= 280) lengthCategory = 'long';
+    card.setAttribute('data-length', lengthCategory);
+  });
+
+  // ===== コピー機能 =====
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const targetId = btn.getAttribute('data-target');
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      // innerTextで改行を保持しつつテキストとして取得
+      const text = target.innerText.trim();
+
+      try {
+        await navigator.clipboard.writeText(text);
+        showCopiedState(btn);
+        showToast('紹介文をコピーしました');
+      } catch (err) {
+        // フォールバック
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showCopiedState(btn);
+        showToast('紹介文をコピーしました');
+      }
+    });
+  });
+
+  function showCopiedState(btn) {
+    const span = btn.querySelector('span');
+    const original = span.textContent;
+    btn.classList.add('copied');
+    span.textContent = '✓ コピー済み';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      span.textContent = original;
+    }, 2000);
+  }
+
+  // ===== トースト =====
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  // ===== フィルタ・検索 =====
+  const state = {
+    scene: 'all',
+    length: 'all',
+    keyword: ''
+  };
+
+  document.querySelectorAll('.filter-buttons').forEach(group => {
+    const type = group.getAttribute('data-filter-type');
+    group.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state[type] = btn.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+  });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    state.keyword = e.target.value.trim().toLowerCase();
+    applyFilters();
+  });
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('.intro-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const sceneOk = state.scene === 'all' || card.getAttribute('data-scene') === state.scene;
+      const lengthOk = state.length === 'all' || card.getAttribute('data-length') === state.length;
+
+      let keywordOk = true;
+      if (state.keyword) {
+        const searchText = (
+          card.getAttribute('data-search') + ' ' +
+          card.querySelector('.card-body').innerText
+        ).toLowerCase();
+        keywordOk = searchText.includes(state.keyword);
+      }
+
+      if (sceneOk && lengthOk && keywordOk) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('visibleCount').textContent = visible;
+    document.getElementById('emptyState').classList.toggle('show', visible === 0);
+  }
+</script>
+
+</body>
+</html>
