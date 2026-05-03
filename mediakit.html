@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社LIFEFUND メディアキット 2026</title>
+<meta name="description" content="株式会社LIFEFUNDのメディアキット。プレスリリース・メディア掲載・講演履歴・受賞歴をまとめた取材担当者向けプレスリソース。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23E8721C'/%3E%3Crect x='30' y='12' width='40' height='62' fill='%23fff'/%3E%3Crect x='42' y='25' width='4' height='30' fill='%23E8721C'/%3E%3Crect x='54' y='12' width='4' height='25' fill='%23E8721C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#2a2a2a;
+    --ink-mute:#5a5a5a;
+    --paper:#fafaf7;
+    --paper-soft:#f5f1ec;
+    --line:#1a1a1a;
+    --line-soft:#e2dfd8;
+    --accent:#E8721C;        /* LIFEFUNDオレンジ */
+    --accent-deep:#C95A0E;   /* 濃いめオレンジ（hover/強調用） */
+    --accent-soft:#FFF1E2;   /* 淡いオレンジ（背景アクセント） */
+    --gold:#9a7a3a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  
+  /* ── 上部の薄いグレインテクスチャ ── */
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/></svg>");
+    pointer-events:none;
+    z-index:1;
+  }
+  
+  .container{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+  
+  /* ── ヘッダー（LIFEFUND採用サイト風オレンジ帯） ── */
+  .topbar{
+    border-bottom:none;
+    background:var(--accent);
+    color:#fff;
+    padding:14px 0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    position:sticky;top:0;z-index:100;
+  }
+  .topbar-logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:700;letter-spacing:0.15em;
+  }
+  .topbar-logo-mark{
+    display:inline-block;
+    width:18px;height:18px;
+    background:#fff;
+    position:relative;
+    flex-shrink:0;
+  }
+  .topbar-logo-mark::before,
+  .topbar-logo-mark::after{
+    content:'';position:absolute;
+    background:var(--accent);
+    width:2px;
+  }
+  .topbar-logo-mark::before{left:6px;top:2px;height:10px}
+  .topbar-logo-mark::after{left:11px;top:0;height:8px}
+  .topbar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .topbar-nav{display:flex;gap:24px;flex-wrap:wrap}
+  .topbar-nav a{opacity:0.8;transition:opacity .2s;color:#fff}
+  .topbar-nav a:hover{opacity:1}
+  
+  /* ── ヒーロー ── */
+  .hero{padding:80px 0 60px;border-bottom:2px solid var(--line);position:relative}
+  .hero::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:6px;
+    background:var(--accent);
+  }
+  .hero-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:0.3em;
+    color:var(--accent);
+    margin-bottom:32px;
+  }
+  .hero-title{
+    font-family:'Noto Serif JP',serif;
+    font-size:clamp(2.4rem,5.5vw,4.6rem);
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    margin-bottom:24px;
+  }
+  .hero-title .accent{color:var(--accent);font-style:italic;font-weight:400}
+  .hero-sub{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:680px;
+    margin-bottom:48px;
+  }
+  .hero-meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:32px;
+    padding-top:32px;
+    border-top:1px solid var(--line-soft);
+  }
+  .hero-meta dt{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.2em;
+    color:var(--ink-mute);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .hero-meta dd{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.05rem;
+    font-weight:600;
+  }
+  
+  /* ── 会社概要バー ── */
+  .company-bar{
+    background:var(--ink);
+    color:var(--paper);
+    padding:36px 0;
+    margin-top:0;
+  }
+  .company-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:24px;
+  }
+  .company-grid > div{padding-right:24px;border-right:1px solid rgba(255,255,255,0.15)}
+  .company-grid > div:last-child{border-right:none}
+  .company-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:0.2em;
+    opacity:0.55;
+    margin-bottom:6px;
+    text-transform:uppercase;
+  }
+  .company-value{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600}
+  .company-value .num{font-size:1.6rem;color:#FFB672}
+  
+  /* ── セクション共通 ── */
+  section.block{padding:80px 0;border-bottom:1px solid var(--line-soft)}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:24px;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+  }
+  .section-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.2em;
+    color:var(--accent);
+    font-weight:500;
+  }
+  .section-title{
+    font-family:'Noto Serif JP',serif;
+    font-size:clamp(1.8rem,3.5vw,2.6rem);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .section-meta{
+    margin-left:auto;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--ink-mute);
+    letter-spacing:0.1em;
+  }
+  
+  /* ── プレスリリース／メディア掲載 表 ── */
+  .data-table{width:100%;border-collapse:collapse;font-size:0.93rem}
+  .data-table thead{
+    border-top:2px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .data-table th{
+    text-align:left;
+    padding:14px 12px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.2em;
+    color:var(--ink-mute);
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .data-table tbody tr{
+    border-bottom:1px solid var(--line-soft);
+    transition:background .15s;
+  }
+  .data-table tbody tr:hover{background:var(--paper-soft)}
+  .data-table td{padding:18px 12px;vertical-align:top}
+  .data-table .col-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+    color:var(--ink-mute);
+    white-space:nowrap;
+    width:110px;
+  }
+  .data-table .col-title{font-weight:500;line-height:1.5}
+  .data-table .col-brand{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .data-table .col-link{white-space:nowrap;width:100px;text-align:right}
+  .badge-new{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:0.15em;
+    padding:2px 6px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .link-arrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    color:var(--accent);
+    border-bottom:1px solid currentColor;
+    padding-bottom:1px;
+    transition:opacity .2s;
+  }
+  .link-arrow:hover{opacity:0.6}
+  .link-arrow + .link-arrow{margin-left:10px}
+  
+  .table-foot{
+    margin-top:24px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    color:var(--ink-mute);
+  }
+  .table-foot a{color:var(--accent);border-bottom:1px solid currentColor}
+  
+  /* ── 講演履歴 カード型 ── */
+  .talks-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:24px;
+  }
+  .talk-card{
+    border:1px solid var(--line-soft);
+    background:#fff;
+    padding:28px;
+    transition:all .25s;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+  .talk-card:hover{
+    border-color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .talk-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    letter-spacing:0.15em;
+    color:var(--accent);
+    margin-bottom:8px;
+  }
+  .talk-venue{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    color:var(--ink-mute);
+    text-transform:uppercase;
+    margin-bottom:14px;
+    padding-bottom:14px;
+    border-bottom:1px dashed var(--line-soft);
+  }
+  .talk-title{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.1rem;
+    font-weight:600;
+    line-height:1.45;
+    margin-bottom:10px;
+  }
+  .talk-theme{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin-bottom:16px;
+    flex-grow:1;
+  }
+  .talk-stats{
+    display:flex;gap:16px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    color:var(--ink-mute);
+    margin-bottom:14px;
+  }
+  .talk-stats .stat-num{color:var(--ink);font-size:0.9rem;font-weight:600}
+  .talk-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto}
+  
+  /* ── 受賞歴 タイムライン ── */
+  .awards-timeline{position:relative;padding-left:32px}
+  .awards-timeline::before{
+    content:'';
+    position:absolute;
+    left:8px;top:8px;bottom:8px;
+    width:1px;background:var(--line-soft);
+  }
+  .award-item{
+    position:relative;
+    padding:16px 0 24px 24px;
+    border-bottom:1px dashed var(--line-soft);
+  }
+  .award-item:last-child{border-bottom:none}
+  .award-item::before{
+    content:'';
+    position:absolute;
+    left:-32px;top:24px;
+    width:11px;height:11px;
+    background:var(--paper);
+    border:2px solid var(--accent);
+    border-radius:50%;
+  }
+  .award-item.crown::before{background:var(--gold);border-color:var(--gold)}
+  .award-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.15em;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .award-title{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.1rem;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .award-title .crown-mark{color:var(--gold);font-size:0.9em;margin-left:6px}
+  .award-detail{font-size:0.88rem;color:var(--ink-mute)}
+  
+  /* ── PRトピック グリッド ── */
+  .topics-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:0;
+    border:1px solid var(--line);
+  }
+  .topic-cell{
+    padding:28px;
+    border-right:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topic-name{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.05rem;
+    font-weight:600;
+    margin-bottom:10px;
+    color:var(--accent);
+  }
+  .topic-desc{font-size:0.88rem;color:var(--ink-soft);line-height:1.65}
+  .topic-desc a{color:var(--accent);border-bottom:1px solid currentColor}
+  
+  /* ── ローディング状態 ── */
+  .loading{
+    text-align:center;padding:48px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    color:var(--ink-mute);
+    letter-spacing:0.1em;
+  }
+  .loading::after{
+    content:' ●';
+    animation:blink 1.4s infinite;
+  }
+  @keyframes blink{0%,100%{opacity:0.2}50%{opacity:1}}
+  .error{
+    text-align:center;padding:32px;
+    background:var(--paper-soft);
+    font-size:0.88rem;
+    color:var(--ink-mute);
+    border-left:3px solid var(--accent);
+  }
+  
+  /* ── 月セパレーター ── */
+  .month-sep td{
+    background:var(--paper-soft);
+    padding:10px 12px !important;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--ink-mute);
+    text-transform:uppercase;
+    border-top:1px solid var(--line-soft);
+  }
+  
+  /* ── フッター ── */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:60px 0 40px;
+    margin-top:0;
+  }
+  .footer-inner{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+    margin-bottom:40px;
+  }
+  .footer-block h4{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.25em;
+    color:#FFB672;
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  .footer-block p,.footer-block a{
+    font-family:'Noto Serif JP',serif;
+    font-size:0.95rem;
+    line-height:1.7;
+    opacity:0.85;
+    display:block;
+  }
+  .footer-block a{border-bottom:1px solid rgba(255,255,255,0.2);display:inline-block;margin-top:4px}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding-top:20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.15em;
+    opacity:0.5;
+    text-transform:uppercase;
+  }
+  
+  /* ── レスポンシブ ── */
+  @media (max-width:768px){
+    .container{padding:0 20px}
+    .hero{padding:48px 0 40px}
+    section.block{padding:56px 0}
+    .data-table{font-size:0.85rem}
+    .data-table .col-date{width:90px;font-size:0.72rem}
+    .data-table .col-link{width:auto}
+    .data-table th,.data-table td{padding:12px 6px}
+    .topic-cell{padding:20px}
+    .talks-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==== 上部ナビ ==== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-logo"><span class="topbar-logo-mark"></span>LIFEFUND / Media Kit</div>
+    <nav class="topbar-nav">
+      <a href="#press">Press</a>
+      <a href="#media">Media</a>
+      <a href="#talks">Talks</a>
+      <a href="#awards">Awards</a>
+      <a href="#topics">Topics</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ==== ヒーロー ==== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-tag">MEDIA KIT — PRESS RESOURCE</div>
+    <h1 class="hero-title">株式会社LIFEFUND<br><span class="accent">メディアキット</span></h1>
+    <p class="hero-sub">
+      プレスリリース・メディア掲載・講演履歴・受賞歴・PRトピック総覧。<br>
+      取材・寄稿・登壇依頼を検討されるメディア関係者の皆様向けプレスリソース。
+    </p>
+    <dl class="hero-meta">
+      <div><dt>Updated</dt><dd id="updatedDate">読込中...</dd></div>
+      <div><dt>Press Releases</dt><dd id="metaPressCount">—</dd></div>
+      <div><dt>Media Coverage</dt><dd id="metaMediaCount">—</dd></div>
+      <div><dt>Speaking Engagements</dt><dd id="metaTalksCount">—</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ==== 会社概要バー ==== -->
+<div class="company-bar">
+  <div class="container company-grid">
+    <div>
+      <div class="company-label">Founded</div>
+      <div class="company-value">1972<span style="font-size:0.7em;opacity:0.6"> ／ 静岡県浜松市</span></div>
+    </div>
+    <div>
+      <div class="company-label">Revenue</div>
+      <div class="company-value"><span class="num">27.1</span>億円<span style="font-size:0.7em;opacity:0.6"> ／ 10年で13倍</span></div>
+    </div>
+    <div>
+      <div class="company-label">Employees</div>
+      <div class="company-value"><span class="num">72</span>名</div>
+    </div>
+    <div>
+      <div class="company-label">CEO</div>
+      <div class="company-value">白都 卓磨</div>
+    </div>
+    <div>
+      <div class="company-label">Brands</div>
+      <div class="company-value" style="font-size:0.95rem">ARRCH / PG HOUSE / 物件王国</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==== 01 プレスリリース ==== -->
+<section class="block" id="press">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">01 / PRESS RELEASES</div>
+      <h2 class="section-title">プレスリリース一覧</h2>
+      <div class="section-meta" id="pressMetaInline">読込中...</div>
+    </div>
+    <div id="pressTableWrap">
+      <div class="loading">プレスリリースを読み込んでいます</div>
+    </div>
+    <p class="table-foot">▶ PR TIMES全リリース：<a href="https://prtimes.jp/main/html/searchrlp/company_id/160136" target="_blank" rel="noopener">prtimes.jp/…/company_id/160136</a></p>
+  </div>
+</section>
+
+<!-- ==== 02 メディア掲載 ==== -->
+<section class="block" id="media">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">02 / MEDIA COVERAGE</div>
+      <h2 class="section-title">メディア掲載一覧</h2>
+      <div class="section-meta" id="mediaMetaInline">読込中...</div>
+    </div>
+    <div id="mediaTableWrap">
+      <div class="loading">メディア掲載情報を読み込んでいます</div>
+    </div>
+    <p class="table-foot">
+      ▶ ARRCH メディア掲載：<a href="https://www.arrch.net/articlecat/media" target="_blank" rel="noopener">arrch.net/articlecat/media</a>
+      ／ PG HOUSE お知らせ：<a href="https://hamamatsu.pg-house.jp/news/" target="_blank" rel="noopener">hamamatsu.pg-house.jp/news/</a>
+    </p>
+  </div>
+</section>
+
+<!-- ==== 03 講演履歴（NEW） ==== -->
+<section class="block" id="talks">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">03 / SPEAKING ENGAGEMENTS</div>
+      <h2 class="section-title">代表 講演・登壇履歴</h2>
+      <div class="section-meta" id="talksMetaInline">読込中...</div>
+    </div>
+    <div id="talksWrap">
+      <div class="loading">講演履歴を読み込んでいます</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== 04 受賞歴 ==== -->
+<section class="block" id="awards">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">04 / AWARDS &amp; RECOGNITION</div>
+      <h2 class="section-title">受賞歴・表彰</h2>
+      <div class="section-meta" id="awardsMetaInline">読込中...</div>
+    </div>
+    <div id="awardsWrap">
+      <div class="loading">受賞歴を読み込んでいます</div>
+    </div>
+    <p class="table-foot">▶ 受賞歴詳細：<a href="https://www.arrch.net/about/history/" target="_blank" rel="noopener">arrch.net/about/history/</a></p>
+  </div>
+</section>
+
+<!-- ==== 05 PRトピック ==== -->
+<section class="block" id="topics">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">05 / OTHER PR TOPICS</div>
+      <h2 class="section-title">その他 PRトピック</h2>
+    </div>
+    <div id="topicsWrap">
+      <div class="loading">PRトピックを読み込んでいます</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== フッター ==== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-block">
+        <h4>Press Contact</h4>
+        <p><strong>石野 祐太朗</strong><br>PR担当</p>
+        <a href="mailto:[email protected]">[email protected]</a>
+        <a href="tel:053-488-8910">TEL: 053-488-8910</a>
+      </div>
+      <div class="footer-block">
+        <h4>Company</h4>
+        <p>株式会社LIFEFUND<br>静岡県浜松市<br>資本金 500万円</p>
+      </div>
+      <div class="footer-block">
+        <h4>Brands</h4>
+        <a href="https://www.arrch.net/" target="_blank" rel="noopener">ARRCH（注文住宅）</a>
+        <a href="https://hamamatsu.pg-house.jp/" target="_blank" rel="noopener">PG HOUSE 浜松（高性能住宅）</a>
+        <a href="https://kenchiku-ai.com/" target="_blank" rel="noopener">ホリエモンAI学校 建築校</a>
+      </div>
+      <div class="footer-block">
+        <h4>Press Releases</h4>
+        <a href="https://prtimes.jp/main/html/searchrlp/company_id/160136" target="_blank" rel="noopener">PR TIMES 配信履歴</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 株式会社LIFEFUND ／ Media Kit auto-synced from Google Sheets
+    </div>
+  </div>
+</footer>
+
+<!-- ==== データ読込スクリプト ==== -->
+<script src="config.js"></script>
+<script src="fallback-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
