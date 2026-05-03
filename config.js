@@ -1,30 +1,20 @@
 /* =========================================================
    LIFEFUND メディアキット — データソース設定
-   ---------------------------------------------------------
-   ▼ 運用方法
-   1. Googleスプレッドシートを作成（テンプレートはREADME参照）
-   2. ファイル → 共有 → ウェブに公開
-   3. 「リンクを知っている全員 → 閲覧者」に設定
-   4. スプレッドシートのURLから ID を取得
-      例: https://docs.google.com/spreadsheets/d/【ココがID】/edit
-   5. 下記の SHEET_ID にIDを貼り付け
-   6. 各タブの GID（タブごとに異なる数字）も貼り付け
-      タブを開いた時のURL末尾 #gid=【ココ】
    ========================================================= */
 
 const DATA_CONFIG = {
-  // ▼ スプレッドシートID（必須）
-  SHEET_ID: "【ここにスプレッドシートIDを貼り付け】",
+  // ▼ スプレッドシートID
+  SHEET_ID: "104GnNBlMLd3cVsCYrIhMSCkHRZZGTPY3Yv779X0KHME",
 
-  // ▼ 各タブのGID（タブのURL末尾 #gid=○○ の数字）
+  // ▼ 各タブのGID
   TABS: {
-    press:    "0",          // タブ「press_releases」のGID
-    media:    "111111111",   // タブ「media_coverage」のGID
-    talks:    "222222222",   // タブ「speaking」のGID
-    awards:   "333333333",   // タブ「awards」のGID
-    topics:   "444444444",   // タブ「topics」のGID
+    press:    "0",            // press_releases
+    media:    "1944679808",   // media_coverage
+    talks:    "2097691115",   // speaking
+    awards:   "156401064",    // awards
+    topics:   "1540632922",   // topics
   },
 
-  // ▼ サイト最終更新日の自動表示（スプレッドシートの更新時刻ではなくページ読込日になります）
+  // ▼ 表示日付の自動更新
   AUTO_UPDATE_DATE: true,
 };
