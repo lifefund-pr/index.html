@@ -178,7 +178,27 @@ function renderAwards(rows) {
   $("awardsMetaInline").textContent = `全 ${rows.length}件`;
 }
 
-// 05. PRトピック
+// 05. ビジョン（未来目標）— 実績と区別して表示
+function renderVision(rows) {
+  const notice = `<div class="vision-notice">
+    <strong>※ 以下は未来目標・ビジョンです。</strong>
+    上段の各セクション（プレスリリース・メディア掲載・講演登壇・受賞歴）は<strong>過去〜現在の確定実績</strong>のみを掲載しています。
+  </div>`;
+  let html = notice + `<div class="vision-grid">`;
+  for (const r of rows) {
+    let detail = escapeHtml(r.detail || "");
+    if (r.url) detail += ` <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.url_label || "詳細")} →</a>`;
+    html += `<div class="vision-card">
+      ${r.target_year ? `<div class="vision-target">Target ／ ${escapeHtml(r.target_year)}</div>` : ''}
+      <div class="vision-name">${escapeHtml(r.name)}</div>
+      <div class="vision-detail">${detail}</div>
+    </div>`;
+  }
+  html += `</div>`;
+  $("visionWrap").innerHTML = html;
+}
+
+// 06. PRトピック
 function renderTopics(rows) {
   let html = `<div class="topics-grid">`;
   for (const r of rows) {
@@ -201,21 +221,20 @@ function showError(elementId, message) {
 
 // ------- 起動 -------
 async function init() {
-  // 更新日表示
-  if (DATA_CONFIG.AUTO_UPDATE_DATE) {
-    const d = new Date();
-    $("updatedDate").textContent = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,"0")}.${String(d.getDate()).padStart(2,"0")}`;
-  }
+  // 「データ最終更新日」の初期表示
+  $("updatedDate").textContent = "—";
 
   // スプレッドシートIDが未設定の場合 → フォールバックデータで描画
   if (!DATA_CONFIG.SHEET_ID || DATA_CONFIG.SHEET_ID.includes("ここに")) {
-    console.info("[LIFEFUND MediaKit] スプレッドシート未設定 → 同梱の初期データで表示中。config.jsにIDを設定すると自動連携が有効になります。");
+    console.info("[LIFEFUND PR Archive] スプレッドシート未設定 → 同梱の初期データで表示中。config.jsにIDを設定すると自動連携が有効になります。");
     if (typeof FALLBACK_DATA !== "undefined") {
       renderPress(structuredClone(FALLBACK_DATA.press));
       renderMedia(structuredClone(FALLBACK_DATA.media));
       renderTalks(structuredClone(FALLBACK_DATA.talks));
       renderAwards(structuredClone(FALLBACK_DATA.awards));
+      if (FALLBACK_DATA.vision) renderVision(structuredClone(FALLBACK_DATA.vision));
       renderTopics(structuredClone(FALLBACK_DATA.topics));
+      if (FALLBACK_DATA.lastUpdated) $("updatedDate").textContent = formatDate(FALLBACK_DATA.lastUpdated);
     }
     return;
   }
@@ -226,6 +245,7 @@ async function init() {
     { key: "media",  gid: DATA_CONFIG.TABS.media,  render: renderMedia,  errId: "mediaTableWrap" },
     { key: "talks",  gid: DATA_CONFIG.TABS.talks,  render: renderTalks,  errId: "talksWrap" },
     { key: "awards", gid: DATA_CONFIG.TABS.awards, render: renderAwards, errId: "awardsWrap" },
+    { key: "vision", gid: DATA_CONFIG.TABS.vision, render: renderVision, errId: "visionWrap" },
     { key: "topics", gid: DATA_CONFIG.TABS.topics, render: renderTopics, errId: "topicsWrap" },
   ];
   await Promise.all(tasks.map(async (t) => {
@@ -242,6 +262,23 @@ async function init() {
       }
     }
   }));
+
+  // データ最終更新日（meta タブから取得）
+  if (DATA_CONFIG.TABS.meta) {
+    try {
+      const metaRows = await fetchSheet(DATA_CONFIG.TABS.meta);
+      // metaタブ: key/value 形式（1行目ヘッダー、2行目以降にlast_updated行）
+      const lastUpdated = metaRows.find(r => (r.key || "").toLowerCase() === "last_updated");
+      if (lastUpdated && lastUpdated.value) {
+        $("updatedDate").textContent = formatDate(lastUpdated.value);
+      }
+    } catch (err) {
+      console.warn("[meta] 最終更新日の取得失敗:", err);
+      if (typeof FALLBACK_DATA !== "undefined" && FALLBACK_DATA.lastUpdated) {
+        $("updatedDate").textContent = formatDate(FALLBACK_DATA.lastUpdated);
+      }
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init);
