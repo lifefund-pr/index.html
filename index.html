@@ -82,6 +82,17 @@
   .topbar-nav a{opacity:0.8;transition:opacity .2s;color:#fff}
   .topbar-nav a:hover{opacity:1}
   
+  /* ── 関連ページ切替 ── */
+  .site-switch{background:var(--ink);position:relative;z-index:3}
+  .site-switch .container{display:flex;gap:4px;flex-wrap:wrap}
+  .site-switch a{
+    font-size:0.8rem;letter-spacing:0.08em;color:rgba(255,255,255,0.7);
+    padding:10px 16px;border-bottom:2px solid transparent;transition:color .2s;
+  }
+  .site-switch a:hover{color:#fff}
+  .site-switch a[aria-current="page"]{color:#fff;border-bottom-color:var(--accent)}
+  .company-note{font-size:0.7em;opacity:0.6;font-weight:400}
+
   /* ── ヒーロー ── */
   .hero{padding:80px 0 60px;border-bottom:2px solid var(--line);position:relative}
   .hero::before{
@@ -486,7 +497,7 @@
     opacity:0.85;
     display:block;
   }
-  .footer-block a{border-bottom:1px solid rgba(255,255,255,0.2);display:inline-block;margin-top:4px}
+  .footer-block a{border-bottom:1px solid rgba(255,255,255,0.2);display:table;margin-top:4px}
   .footer-bottom{
     border-top:1px solid rgba(255,255,255,0.15);
     padding-top:20px;
@@ -527,6 +538,13 @@
     </nav>
   </div>
 </div>
+<nav class="site-switch" aria-label="関連ページ">
+  <div class="container">
+    <a href="mediakit.html">メディアキット</a>
+    <a href="index.html" aria-current="page">PR実績アーカイブ</a>
+    <a href="shacho_introduction_archive.html">代表 紹介文集</a>
+  </div>
+</nav>
 
 <!-- ==== ヒーロー ==== -->
 <header class="hero">
@@ -548,27 +566,12 @@
 
 <!-- ==== 会社概要バー ==== -->
 <div class="company-bar">
-  <div class="container company-grid">
-    <div>
-      <div class="company-label">Founded</div>
-      <div class="company-value">1972<span style="font-size:0.7em;opacity:0.6"> ／ 静岡県浜松市</span></div>
-    </div>
-    <div>
-      <div class="company-label">Revenue</div>
-      <div class="company-value"><span class="num">27.1</span>億円<span style="font-size:0.7em;opacity:0.6"> ／ 10年で13倍</span></div>
-    </div>
-    <div>
-      <div class="company-label">Employees</div>
-      <div class="company-value"><span class="num">72</span>名</div>
-    </div>
-    <div>
-      <div class="company-label">CEO</div>
-      <div class="company-value">白都 卓磨</div>
-    </div>
-    <div>
-      <div class="company-label">Brands</div>
-      <div class="company-value" style="font-size:0.95rem">ARRCH / PG HOUSE / 物件王国</div>
-    </div>
+  <div class="container company-grid" id="companyBarWrap">
+    <div><div class="company-label">代表者</div><div class="company-value">代表取締役 白都 卓磨</div></div>
+    <div><div class="company-label">設立</div><div class="company-value"><span class="num">1972</span>年<span class="company-note"> ／ 前身法人の設立年</span></div></div>
+    <div><div class="company-label">従業員数</div><div class="company-value"><span class="num">72</span>名</div></div>
+    <div><div class="company-label">売上高</div><div class="company-value"><span class="num">27.1</span>億円</div></div>
+    <div><div class="company-label">主なブランド</div><div class="company-value">ARRCH／PGHOUSE／物件王国／つながる相続</div></div>
   </div>
 </div>
 
@@ -667,9 +670,17 @@
     <div class="footer-inner">
       <div class="footer-block">
         <h4>Press Contact</h4>
-        <p><strong>石野 祐太朗</strong><br>PR担当</p>
-        <a href="mailto:[email protected]">[email protected]</a>
-        <a href="tel:053-488-8910">TEL: 053-488-8910</a>
+        <div id="footerContact">
+          <p>石野 祐太朗（PR担当）</p>
+          <a href="mailto:pr.lifefund@gmail.com">pr.lifefund@gmail.com</a>
+          <a href="tel:0534888910">053-488-8910</a>
+        </div>
+      </div>
+      <div class="footer-block">
+        <h4>Pages</h4>
+        <a href="mediakit.html">メディアキット</a>
+        <a href="index.html">PR実績アーカイブ</a>
+        <a href="shacho_introduction_archive.html">代表 紹介文集</a>
       </div>
       <div class="footer-block">
         <h4>Company</h4>

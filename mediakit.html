@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社LIFEFUND メディアキット 2026</title>
-<meta name="description" content="株式会社LIFEFUNDのメディアキット。プレスリリース・メディア掲載・講演履歴・受賞歴をまとめた取材担当者向けプレスリソース。">
+<title>株式会社LIFEFUND メディアキット</title>
+<meta name="description" content="株式会社LIFEFUNDのメディアキット。会社概要・代表プロフィール・事業ブランド・取材可能テーマ・ロゴや写真素材・問い合わせ先をまとめた、メディア関係者向けプレスリソース。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23E8721C'/%3E%3Crect x='30' y='12' width='40' height='62' fill='%23fff'/%3E%3Crect x='42' y='25' width='4' height='30' fill='%23E8721C'/%3E%3Crect x='54' y='12' width='4' height='25' fill='%23E8721C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +19,8 @@
     --line:#1a1a1a;
     --line-soft:#e2dfd8;
     --accent:#E8721C;        /* LIFEFUNDオレンジ */
-    --accent-deep:#C95A0E;   /* 濃いめオレンジ（hover/強調用） */
-    --accent-soft:#FFF1E2;   /* 淡いオレンジ（背景アクセント） */
+    --accent-deep:#C95A0E;
+    --accent-soft:#FFF1E2;
     --gold:#9a7a3a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -34,8 +34,8 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none}
-  
-  /* ── 上部の薄いグレインテクスチャ ── */
+  img{max-width:100%;display:block}
+
   body::before{
     content:'';
     position:fixed;inset:0;
@@ -43,12 +43,11 @@
     pointer-events:none;
     z-index:1;
   }
-  
+
   .container{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-  
-  /* ── ヘッダー（LIFEFUND採用サイト風オレンジ帯） ── */
+
+  /* ── ヘッダー ── */
   .topbar{
-    border-bottom:none;
     background:var(--accent);
     color:#fff;
     padding:14px 0;
@@ -58,411 +57,263 @@
     text-transform:uppercase;
     position:sticky;top:0;z-index:100;
   }
-  .topbar-logo{
-    display:flex;align-items:center;gap:10px;
-    font-weight:700;letter-spacing:0.15em;
-  }
-  .topbar-logo-mark{
-    display:inline-block;
-    width:18px;height:18px;
-    background:#fff;
-    position:relative;
-    flex-shrink:0;
-  }
-  .topbar-logo-mark::before,
-  .topbar-logo-mark::after{
-    content:'';position:absolute;
-    background:var(--accent);
-    width:2px;
-  }
+  .topbar-logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:0.15em}
+  .topbar-logo-mark{display:inline-block;width:18px;height:18px;background:#fff;position:relative;flex-shrink:0}
+  .topbar-logo-mark::before,.topbar-logo-mark::after{content:'';position:absolute;background:var(--accent);width:2px}
   .topbar-logo-mark::before{left:6px;top:2px;height:10px}
   .topbar-logo-mark::after{left:11px;top:0;height:8px}
   .topbar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-  .topbar-nav{display:flex;gap:24px;flex-wrap:wrap}
+  .topbar-nav{display:flex;gap:20px;flex-wrap:wrap}
   .topbar-nav a{opacity:0.8;transition:opacity .2s;color:#fff}
   .topbar-nav a:hover{opacity:1}
-  
+
+  /* ── 関連ページ切替 ── */
+  .site-switch{background:var(--ink);position:relative;z-index:3}
+  .site-switch .container{display:flex;gap:4px;flex-wrap:wrap;padding-top:0;padding-bottom:0}
+  .site-switch a{
+    font-size:0.8rem;letter-spacing:0.08em;color:rgba(255,255,255,0.7);
+    padding:10px 16px;border-bottom:2px solid transparent;transition:color .2s;
+  }
+  .site-switch a:hover{color:#fff}
+  .site-switch a[aria-current="page"]{color:#fff;border-bottom-color:var(--accent)}
+
   /* ── ヒーロー ── */
   .hero{padding:80px 0 60px;border-bottom:2px solid var(--line);position:relative}
-  .hero::before{
-    content:'';
-    position:absolute;
-    left:0;top:0;bottom:0;
-    width:6px;
-    background:var(--accent);
-  }
-  .hero-tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;letter-spacing:0.3em;
-    color:var(--accent);
-    margin-bottom:32px;
-  }
+  .hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+  .hero-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--accent);margin-bottom:32px}
   .hero-title{
     font-family:'Noto Serif JP',serif;
     font-size:clamp(2.4rem,5.5vw,4.6rem);
-    font-weight:700;
-    line-height:1.1;
-    letter-spacing:-0.02em;
-    margin-bottom:24px;
+    font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:24px;
   }
   .hero-title .accent{color:var(--accent);font-style:italic;font-weight:400}
-  .hero-sub{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.05rem;
-    color:var(--ink-soft);
-    max-width:680px;
-    margin-bottom:48px;
-  }
+  .hero-sub{font-family:'Noto Serif JP',serif;font-size:1.05rem;color:var(--ink-soft);max-width:720px;margin-bottom:48px}
   .hero-meta{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:32px;
-    padding-top:32px;
-    border-top:1px solid var(--line-soft);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:32px;padding-top:32px;border-top:1px solid var(--line-soft);
   }
-  .hero-meta dt{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:0.2em;
-    color:var(--ink-mute);
-    text-transform:uppercase;
-    margin-bottom:6px;
-  }
-  .hero-meta dd{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.05rem;
-    font-weight:600;
-  }
-  
+  .hero-meta dt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--ink-mute);text-transform:uppercase;margin-bottom:6px}
+  .hero-meta dd{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:600}
+
   /* ── 会社概要バー ── */
-  .company-bar{
-    background:var(--ink);
-    color:var(--paper);
-    padding:36px 0;
-    margin-top:0;
-  }
-  .company-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:24px;
-  }
+  .company-bar{background:var(--ink);color:var(--paper);padding:36px 0}
+  .company-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
   .company-grid > div{padding-right:24px;border-right:1px solid rgba(255,255,255,0.15)}
   .company-grid > div:last-child{border-right:none}
-  .company-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;letter-spacing:0.2em;
-    opacity:0.55;
-    margin-bottom:6px;
-    text-transform:uppercase;
-  }
-  .company-value{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600}
+  .company-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;opacity:0.55;margin-bottom:6px;text-transform:uppercase}
+  .company-value{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:600}
   .company-value .num{font-size:1.6rem;color:#FFB672}
-  
+  .company-note{font-size:0.7em;opacity:0.6;font-weight:400}
+
   /* ── セクション共通 ── */
-  section.block{padding:80px 0;border-bottom:1px solid var(--line-soft)}
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    gap:24px;
-    margin-bottom:48px;
-    flex-wrap:wrap;
+  section.block{padding:80px 0;border-bottom:1px solid var(--line-soft);scroll-margin-top:48px}
+  .section-head{display:flex;align-items:baseline;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+  .section-num{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.2em;color:var(--accent);font-weight:500}
+  .section-title{font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-0.01em}
+  .section-meta{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.1em}
+  .section-lead{font-size:0.95rem;color:var(--ink-soft);max-width:760px;margin:-16px 0 36px}
+  .sub-head{
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-family:'Noto Serif JP',serif;font-size:1.25rem;font-weight:700;
+    margin:56px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--line);
   }
-  .section-num{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;
-    letter-spacing:0.2em;
-    color:var(--accent);
-    font-weight:500;
+  .sub-head:first-of-type{margin-top:0}
+  .sub-head .section-meta{margin-left:0;font-weight:400}
+  .more-link{
+    display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+    letter-spacing:0.1em;color:var(--accent);border-bottom:1px solid currentColor;
   }
-  .section-title{
-    font-family:'Noto Serif JP',serif;
-    font-size:clamp(1.8rem,3.5vw,2.6rem);
-    font-weight:700;
-    letter-spacing:-0.01em;
+  .more-link:hover{opacity:0.6}
+
+  /* ── 会社概要テーブル ── */
+  .profile-table{width:100%;border-collapse:collapse;border-top:2px solid var(--line)}
+  .profile-table th,.profile-table td{padding:18px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top;text-align:left}
+  .profile-table th{
+    width:200px;font-family:'Noto Serif JP',serif;font-weight:600;font-size:0.95rem;
+    background:var(--paper-soft);white-space:nowrap;
   }
-  .section-meta{
-    margin-left:auto;
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    color:var(--ink-mute);
-    letter-spacing:0.1em;
+  .profile-table td{font-size:0.95rem;white-space:pre-line}
+  .profile-note{font-size:0.8rem;color:var(--ink-mute);margin-top:4px}
+
+  /* ── 代表プロフィール ── */
+  .ceo-card{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start}
+  .ceo-photo{
+    aspect-ratio:4/5;background:var(--paper-soft);border:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.2em;color:var(--ink-mute);
   }
-  
-  /* ── プレスリリース／メディア掲載 表 ── */
-  .data-table{width:100%;border-collapse:collapse;font-size:0.93rem}
-  .data-table thead{
-    border-top:2px solid var(--line);
-    border-bottom:1px solid var(--line);
+  .ceo-photo img{width:100%;height:100%;object-fit:cover}
+  .ceo-role{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:8px}
+  .ceo-name{font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:700;margin-bottom:24px}
+  .ceo-name small{font-size:0.9rem;font-weight:400;color:var(--ink-mute);margin-left:12px;letter-spacing:0.1em}
+  .ceo-text{font-size:0.97rem;line-height:2;color:var(--ink-soft);white-space:pre-wrap}
+  .ceo-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px dashed var(--line-soft)}
+  .copy-btn{
+    font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;letter-spacing:0.1em;
+    padding:10px 22px;background:var(--ink);color:#fff;border:1px solid var(--ink);cursor:pointer;transition:background .2s;
   }
-  .data-table th{
-    text-align:left;
-    padding:14px 12px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:0.2em;
-    color:var(--ink-mute);
-    text-transform:uppercase;
-    font-weight:500;
+  .copy-btn:hover{background:var(--accent);border-color:var(--accent)}
+  .copy-btn.copied{background:var(--accent);border-color:var(--accent)}
+
+  /* ── 事業ブランド ── */
+  .brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border:1px solid var(--line)}
+  .brand-card{padding:28px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:#fff;display:flex;flex-direction:column}
+  .brand-category{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--ink-mute);margin-bottom:6px}
+  .brand-name{font-family:'Noto Serif JP',serif;font-size:1.35rem;font-weight:700;color:var(--accent);margin-bottom:12px}
+  .brand-desc{font-size:0.88rem;color:var(--ink-soft);line-height:1.7;flex-grow:1;margin-bottom:16px}
+  .brand-card .link-arrow{align-self:flex-start}
+
+  /* ── 取材可能テーマ ── */
+  .themes-list{list-style:none;counter-reset:theme;display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:0 48px}
+  .theme-item{counter-increment:theme;padding:22px 0 22px 56px;border-bottom:1px solid var(--line-soft);position:relative}
+  .theme-item::before{
+    content:counter(theme,decimal-leading-zero);position:absolute;left:0;top:22px;
+    font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--accent);font-weight:500;
   }
-  .data-table tbody tr{
+  .theme-name{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:700;margin-bottom:6px}
+  .theme-detail{font-size:0.88rem;color:var(--ink-soft);line-height:1.7}
+
+  /* ── 素材ダウンロード ── */
+  .assets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+  .asset-card{background:#fff;border:1px solid var(--line-soft);display:flex;flex-direction:column}
+  .asset-thumb{
+    aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:
+      linear-gradient(45deg,#f0ede7 25%,transparent 25%,transparent 75%,#f0ede7 75%),
+      linear-gradient(45deg,#f0ede7 25%,transparent 25%,transparent 75%,#f0ede7 75%);
+    background-size:16px 16px;background-position:0 0,8px 8px;background-color:#fff;
     border-bottom:1px solid var(--line-soft);
-    transition:background .15s;
   }
+  .asset-thumb.dark{background:#1a1a1a}
+  .asset-thumb img{max-height:100%;object-fit:contain}
+  .asset-tile{
+    font-family:'JetBrains Mono',monospace;font-size:1rem;letter-spacing:0.2em;color:var(--ink-mute);
+    border:1px solid var(--line-soft);background:#fff;padding:28px 24px;
+  }
+  .asset-card figcaption{padding:18px 20px 20px;display:flex;flex-direction:column;flex-grow:1}
+  .asset-type{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:4px}
+  .asset-name{font-weight:700;margin-bottom:6px}
+  .asset-note{font-size:0.8rem;color:var(--ink-mute);line-height:1.6;margin-bottom:12px}
+  .asset-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:auto}
+  .btn-dl{
+    display:inline-block;background:var(--accent);color:#fff;font-size:0.85rem;font-weight:500;
+    padding:9px 18px;letter-spacing:0.08em;transition:background .2s;
+  }
+  .btn-dl:hover{background:var(--accent-deep)}
+  .assets-empty{padding:40px;text-align:center;background:var(--paper-soft);color:var(--ink-mute);font-size:0.9rem;border-left:3px solid var(--accent)}
+  .usage-box{margin-top:48px;padding:32px 36px;background:var(--paper-soft);border-left:4px solid var(--ink)}
+  .usage-box h3{font-family:'Noto Serif JP',serif;font-size:1.15rem;margin-bottom:16px}
+  .usage-list{padding-left:1.4em;display:grid;gap:8px;font-size:0.9rem;color:var(--ink-soft)}
+
+  /* ── 実績テーブル ── */
+  .data-table{width:100%;border-collapse:collapse;font-size:0.93rem}
+  .data-table thead{border-top:2px solid var(--line);border-bottom:1px solid var(--line)}
+  .data-table th{
+    text-align:left;padding:14px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:0.2em;color:var(--ink-mute);text-transform:uppercase;font-weight:500;
+  }
+  .data-table tbody tr{border-bottom:1px solid var(--line-soft);transition:background .15s}
   .data-table tbody tr:hover{background:var(--paper-soft)}
   .data-table td{padding:18px 12px;vertical-align:top}
-  .data-table .col-date{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.82rem;
-    color:var(--ink-mute);
-    white-space:nowrap;
-    width:110px;
-  }
+  .data-table .col-date{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--ink-mute);white-space:nowrap;width:110px}
   .data-table .col-title{font-weight:500;line-height:1.5}
-  .data-table .col-brand{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.7rem;
-    letter-spacing:0.1em;
-    color:var(--accent);
-    white-space:nowrap;
-  }
+  .data-table .col-brand{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--accent);white-space:nowrap}
   .data-table .col-link{white-space:nowrap;width:100px;text-align:right}
   .badge-new{
-    display:inline-block;
-    background:var(--accent);
-    color:#fff;
-    font-family:'JetBrains Mono',monospace;
-    font-size:9px;
-    letter-spacing:0.15em;
-    padding:2px 6px;
-    margin-left:8px;
-    vertical-align:middle;
+    display:inline-block;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;
+    font-size:9px;letter-spacing:0.15em;padding:2px 6px;margin-left:8px;vertical-align:middle;
   }
   .link-arrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.1em;
-    color:var(--accent);
-    border-bottom:1px solid currentColor;
-    padding-bottom:1px;
-    transition:opacity .2s;
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);
+    border-bottom:1px solid currentColor;padding-bottom:1px;transition:opacity .2s;
   }
   .link-arrow:hover{opacity:0.6}
   .link-arrow + .link-arrow{margin-left:10px}
-  
-  .table-foot{
-    margin-top:24px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.78rem;
-    color:var(--ink-mute);
+  .month-sep td{
+    background:var(--paper-soft);padding:10px 12px !important;font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:0.2em;color:var(--ink-mute);text-transform:uppercase;border-top:1px solid var(--line-soft);
   }
-  .table-foot a{color:var(--accent);border-bottom:1px solid currentColor}
-  
-  /* ── 講演履歴 カード型 ── */
-  .talks-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-    gap:24px;
-  }
-  .talk-card{
-    border:1px solid var(--line-soft);
-    background:#fff;
-    padding:28px;
-    transition:all .25s;
-    display:flex;
-    flex-direction:column;
-    position:relative;
-  }
-  .talk-card:hover{
-    border-color:var(--ink);
-    transform:translateY(-2px);
-    box-shadow:6px 6px 0 var(--ink);
-  }
-  .talk-date{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.75rem;
-    letter-spacing:0.15em;
-    color:var(--accent);
-    margin-bottom:8px;
-  }
+
+  .talks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+  .talk-card{border:1px solid var(--line-soft);background:#fff;padding:28px;transition:all .25s;display:flex;flex-direction:column}
+  .talk-card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:6px 6px 0 var(--ink)}
+  .talk-date{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:8px}
   .talk-venue{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.7rem;
-    letter-spacing:0.15em;
-    color:var(--ink-mute);
-    text-transform:uppercase;
-    margin-bottom:14px;
-    padding-bottom:14px;
-    border-bottom:1px dashed var(--line-soft);
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--ink-mute);
+    text-transform:uppercase;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--line-soft);
   }
-  .talk-title{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.1rem;
-    font-weight:600;
-    line-height:1.45;
-    margin-bottom:10px;
-  }
-  .talk-theme{
-    font-size:0.88rem;
-    color:var(--ink-soft);
-    line-height:1.6;
-    margin-bottom:16px;
-    flex-grow:1;
-  }
-  .talk-stats{
-    display:flex;gap:16px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.72rem;
-    color:var(--ink-mute);
-    margin-bottom:14px;
-  }
+  .talk-title{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600;line-height:1.45;margin-bottom:10px}
+  .talk-theme{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;margin-bottom:16px;flex-grow:1}
+  .talk-stats{display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-mute);margin-bottom:14px}
   .talk-stats .stat-num{color:var(--ink);font-size:0.9rem;font-weight:600}
   .talk-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto}
-  
-  /* ── 受賞歴 タイムライン ── */
+
   .awards-timeline{position:relative;padding-left:32px}
-  .awards-timeline::before{
-    content:'';
-    position:absolute;
-    left:8px;top:8px;bottom:8px;
-    width:1px;background:var(--line-soft);
-  }
-  .award-item{
-    position:relative;
-    padding:16px 0 24px 24px;
-    border-bottom:1px dashed var(--line-soft);
-  }
+  .awards-timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:var(--line-soft)}
+  .award-item{position:relative;padding:16px 0 24px 24px;border-bottom:1px dashed var(--line-soft)}
   .award-item:last-child{border-bottom:none}
   .award-item::before{
-    content:'';
-    position:absolute;
-    left:-32px;top:24px;
-    width:11px;height:11px;
-    background:var(--paper);
-    border:2px solid var(--accent);
-    border-radius:50%;
+    content:'';position:absolute;left:-32px;top:24px;width:11px;height:11px;
+    background:var(--paper);border:2px solid var(--accent);border-radius:50%;
   }
   .award-item.crown::before{background:var(--gold);border-color:var(--gold)}
-  .award-date{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.15em;
-    color:var(--accent);
-    margin-bottom:6px;
-  }
-  .award-title{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.1rem;
-    font-weight:600;
-    margin-bottom:4px;
-  }
+  .award-date{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.15em;color:var(--accent);margin-bottom:6px}
+  .award-title{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600;margin-bottom:4px}
   .award-title .crown-mark{color:var(--gold);font-size:0.9em;margin-left:6px}
   .award-detail{font-size:0.88rem;color:var(--ink-mute)}
-  
-  /* ── PRトピック グリッド ── */
-  .topics-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:0;
-    border:1px solid var(--line);
-  }
-  .topic-cell{
-    padding:28px;
-    border-right:1px solid var(--line-soft);
-    border-bottom:1px solid var(--line-soft);
-  }
-  .topic-name{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.05rem;
-    font-weight:600;
-    margin-bottom:10px;
-    color:var(--accent);
-  }
-  .topic-desc{font-size:0.88rem;color:var(--ink-soft);line-height:1.65}
-  .topic-desc a{color:var(--accent);border-bottom:1px solid currentColor}
-  
-  /* ── ローディング状態 ── */
-  .loading{
-    text-align:center;padding:48px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.85rem;
-    color:var(--ink-mute);
-    letter-spacing:0.1em;
-  }
-  .loading::after{
-    content:' ●';
-    animation:blink 1.4s infinite;
-  }
+
+  /* ── 問い合わせ ── */
+  .contact-box{background:var(--ink);color:var(--paper);padding:48px}
+  .contact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+  .contact-list dt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;color:#FFB672;margin-bottom:6px}
+  .contact-list dd{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600;word-break:break-all}
+  .contact-list dd a{border-bottom:1px solid rgba(255,255,255,0.3)}
+
+  .loading{text-align:center;padding:48px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--ink-mute);letter-spacing:0.1em}
+  .loading::after{content:' ●';animation:blink 1.4s infinite}
   @keyframes blink{0%,100%{opacity:0.2}50%{opacity:1}}
-  .error{
-    text-align:center;padding:32px;
-    background:var(--paper-soft);
-    font-size:0.88rem;
-    color:var(--ink-mute);
-    border-left:3px solid var(--accent);
+  .error{text-align:center;padding:32px;background:var(--paper-soft);font-size:0.88rem;color:var(--ink-mute);border-left:3px solid var(--accent)}
+
+  /* ── トースト ── */
+  .toast{
+    position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120px);
+    background:var(--ink);color:#fff;padding:12px 28px;font-size:0.9rem;z-index:200;
+    border-left:3px solid var(--accent);transition:transform .35s ease;
   }
-  
-  /* ── 月セパレーター ── */
-  .month-sep td{
-    background:var(--paper-soft);
-    padding:10px 12px !important;
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.2em;
-    color:var(--ink-mute);
-    text-transform:uppercase;
-    border-top:1px solid var(--line-soft);
-  }
-  
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
   /* ── フッター ── */
-  footer{
-    background:var(--ink);
-    color:var(--paper);
-    padding:60px 0 40px;
-    margin-top:0;
-  }
-  .footer-inner{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:40px;
-    margin-bottom:40px;
-  }
-  .footer-block h4{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:0.25em;
-    color:#FFB672;
-    margin-bottom:14px;
-    text-transform:uppercase;
-  }
-  .footer-block p,.footer-block a{
-    font-family:'Noto Serif JP',serif;
-    font-size:0.95rem;
-    line-height:1.7;
-    opacity:0.85;
-    display:block;
-  }
-  .footer-block a{border-bottom:1px solid rgba(255,255,255,0.2);display:inline-block;margin-top:4px}
+  footer{background:var(--ink);color:var(--paper);padding:60px 0 40px}
+  .footer-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-block h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.25em;color:#FFB672;margin-bottom:14px;text-transform:uppercase}
+  .footer-block p,.footer-block a{font-family:'Noto Serif JP',serif;font-size:0.95rem;line-height:1.7;opacity:0.85;display:block}
+  .footer-block a{border-bottom:1px solid rgba(255,255,255,0.2);display:table;margin-top:4px}
   .footer-bottom{
-    border-top:1px solid rgba(255,255,255,0.15);
-    padding-top:20px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:0.15em;
-    opacity:0.5;
-    text-transform:uppercase;
+    border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:0.15em;opacity:0.5;text-transform:uppercase;
   }
-  
-  /* ── レスポンシブ ── */
+
+  @media (max-width:900px){
+    .ceo-card{grid-template-columns:1fr;gap:28px}
+    .ceo-photo{max-width:280px}
+    .themes-list{grid-template-columns:1fr}
+  }
   @media (max-width:768px){
-    .container{padding:0 20px}
+    .container{padding:0 16px}
     .hero{padding:48px 0 40px}
     section.block{padding:56px 0}
     .data-table{font-size:0.85rem}
     .data-table .col-date{width:90px;font-size:0.72rem}
     .data-table .col-link{width:auto}
     .data-table th,.data-table td{padding:12px 6px}
-    .topic-cell{padding:20px}
+    .data-table .col-brand{display:none}
     .talks-grid{grid-template-columns:1fr}
+    .profile-table th{width:auto;white-space:normal;display:block;border-bottom:none;padding-bottom:4px}
+    .profile-table td{display:block;padding-top:4px}
+    .brands-grid{grid-template-columns:1fr}
+    .contact-box{padding:28px 20px}
+    .usage-box{padding:24px 20px}
+    .topbar-nav{gap:12px}
   }
 </style>
 </head>
@@ -473,14 +324,23 @@
   <div class="container topbar-inner">
     <div class="topbar-logo"><span class="topbar-logo-mark"></span>LIFEFUND / Media Kit</div>
     <nav class="topbar-nav">
-      <a href="#press">Press</a>
-      <a href="#media">Media</a>
-      <a href="#talks">Talks</a>
-      <a href="#awards">Awards</a>
-      <a href="#topics">Topics</a>
+      <a href="#company">Company</a>
+      <a href="#profile">Profile</a>
+      <a href="#brands">Brands</a>
+      <a href="#themes">Themes</a>
+      <a href="#assets">Assets</a>
+      <a href="#records">Records</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </div>
+<nav class="site-switch" aria-label="関連ページ">
+  <div class="container">
+    <a href="mediakit.html" aria-current="page">メディアキット</a>
+    <a href="index.html">PR実績アーカイブ</a>
+    <a href="shacho_introduction_archive.html">代表 紹介文集</a>
+  </div>
+</nav>
 
 <!-- ==== ヒーロー ==== -->
 <header class="hero">
@@ -488,8 +348,8 @@
     <div class="hero-tag">MEDIA KIT — PRESS RESOURCE</div>
     <h1 class="hero-title">株式会社LIFEFUND<br><span class="accent">メディアキット</span></h1>
     <p class="hero-sub">
-      プレスリリース・メディア掲載・講演履歴・受賞歴・PRトピック総覧。<br>
-      取材・寄稿・登壇依頼を検討されるメディア関係者の皆様向けプレスリソース。
+      取材・寄稿・登壇のご依頼をご検討いただくメディア関係者の皆様へ。<br>
+      会社概要、代表プロフィール、事業ブランド、取材可能テーマ、ロゴ・写真素材、お問い合わせ先をまとめています。
     </p>
     <dl class="hero-meta">
       <div><dt>Updated</dt><dd id="updatedDate">読込中...</dd></div>
@@ -500,103 +360,125 @@
   </div>
 </header>
 
-<!-- ==== 会社概要バー ==== -->
+<!-- ==== 会社概要バー（company_profile の highlight=TRUE の行） ==== -->
 <div class="company-bar">
-  <div class="container company-grid">
-    <div>
-      <div class="company-label">Founded</div>
-      <div class="company-value">1972<span style="font-size:0.7em;opacity:0.6"> ／ 静岡県浜松市</span></div>
-    </div>
-    <div>
-      <div class="company-label">Revenue</div>
-      <div class="company-value"><span class="num">27.1</span>億円<span style="font-size:0.7em;opacity:0.6"> ／ 10年で13倍</span></div>
-    </div>
-    <div>
-      <div class="company-label">Employees</div>
-      <div class="company-value"><span class="num">72</span>名</div>
-    </div>
-    <div>
-      <div class="company-label">CEO</div>
-      <div class="company-value">白都 卓磨</div>
-    </div>
-    <div>
-      <div class="company-label">Brands</div>
-      <div class="company-value" style="font-size:0.95rem">ARRCH / PG HOUSE / 物件王国</div>
-    </div>
+  <div class="container company-grid" id="companyBarWrap">
+    <div><div class="company-label">代表者</div><div class="company-value">代表取締役 白都 卓磨</div></div>
+    <div><div class="company-label">設立</div><div class="company-value"><span class="num">1972</span>年<span class="company-note"> ／ 前身法人の設立年</span></div></div>
+    <div><div class="company-label">従業員数</div><div class="company-value"><span class="num">72</span>名</div></div>
+    <div><div class="company-label">売上高</div><div class="company-value"><span class="num">27.1</span>億円</div></div>
+    <div><div class="company-label">主なブランド</div><div class="company-value">ARRCH／PGHOUSE／物件王国／つながる相続</div></div>
   </div>
 </div>
 
-<!-- ==== 01 プレスリリース ==== -->
-<section class="block" id="press">
+<!-- ==== 01 会社概要 ==== -->
+<section class="block" id="company">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">01 / PRESS RELEASES</div>
-      <h2 class="section-title">プレスリリース一覧</h2>
-      <div class="section-meta" id="pressMetaInline">読込中...</div>
+      <div class="section-num">01 / COMPANY</div>
+      <h2 class="section-title">会社概要</h2>
     </div>
-    <div id="pressTableWrap">
-      <div class="loading">プレスリリースを読み込んでいます</div>
-    </div>
-    <p class="table-foot">▶ PR TIMES全リリース：<a href="https://prtimes.jp/main/html/searchrlp/company_id/160136" target="_blank" rel="noopener">prtimes.jp/…/company_id/160136</a></p>
+    <div id="companyTableWrap"><div class="loading">会社概要を読み込んでいます</div></div>
   </div>
 </section>
 
-<!-- ==== 02 メディア掲載 ==== -->
-<section class="block" id="media">
+<!-- ==== 02 代表プロフィール ==== -->
+<section class="block" id="profile">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">02 / MEDIA COVERAGE</div>
-      <h2 class="section-title">メディア掲載一覧</h2>
-      <div class="section-meta" id="mediaMetaInline">読込中...</div>
+      <div class="section-num">02 / CEO PROFILE</div>
+      <h2 class="section-title">代表プロフィール</h2>
     </div>
-    <div id="mediaTableWrap">
-      <div class="loading">メディア掲載情報を読み込んでいます</div>
-    </div>
-    <p class="table-foot">
-      ▶ ARRCH メディア掲載：<a href="https://www.arrch.net/articlecat/media" target="_blank" rel="noopener">arrch.net/articlecat/media</a>
-      ／ PG HOUSE お知らせ：<a href="https://hamamatsu.pg-house.jp/news/" target="_blank" rel="noopener">hamamatsu.pg-house.jp/news/</a>
-    </p>
-  </div>
-</section>
-
-<!-- ==== 03 講演履歴（NEW） ==== -->
-<section class="block" id="talks">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-num">03 / SPEAKING ENGAGEMENTS</div>
-      <h2 class="section-title">代表 講演・登壇履歴</h2>
-      <div class="section-meta" id="talksMetaInline">読込中...</div>
-    </div>
-    <div id="talksWrap">
-      <div class="loading">講演履歴を読み込んでいます</div>
+    <div class="ceo-card">
+      <div class="ceo-photo" id="ceoPhoto">PHOTO</div>
+      <div>
+        <div class="ceo-role">株式会社LIFEFUND 代表取締役</div>
+        <h3 class="ceo-name">白都 卓磨<small>はくと たくま</small></h3>
+        <div class="ceo-text" id="ceoFeaturedText"><div class="loading">代表プロフィールを読み込んでいます</div></div>
+        <div class="ceo-actions">
+          <button class="copy-btn" id="ceoCopyBtn"><span>プロフィールをコピー</span></button>
+          <a class="link-arrow" href="shacho_introduction_archive.html">短文・講演用など用途別の紹介文を見る →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ==== 04 受賞歴 ==== -->
-<section class="block" id="awards">
+<!-- ==== 03 事業ブランド ==== -->
+<section class="block" id="brands">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">04 / AWARDS &amp; RECOGNITION</div>
-      <h2 class="section-title">受賞歴・表彰</h2>
-      <div class="section-meta" id="awardsMetaInline">読込中...</div>
+      <div class="section-num">03 / BRANDS</div>
+      <h2 class="section-title">事業ブランド一覧</h2>
     </div>
-    <div id="awardsWrap">
-      <div class="loading">受賞歴を読み込んでいます</div>
-    </div>
-    <p class="table-foot">▶ 受賞歴詳細：<a href="https://www.arrch.net/about/history/" target="_blank" rel="noopener">arrch.net/about/history/</a></p>
+    <div id="brandsWrap"><div class="loading">事業ブランドを読み込んでいます</div></div>
   </div>
 </section>
 
-<!-- ==== 05 PRトピック ==== -->
-<section class="block" id="topics">
+<!-- ==== 04 取材可能テーマ ==== -->
+<section class="block" id="themes">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">05 / OTHER PR TOPICS</div>
-      <h2 class="section-title">その他 PRトピック</h2>
+      <div class="section-num">04 / STORY THEMES</div>
+      <h2 class="section-title">取材可能テーマ</h2>
     </div>
-    <div id="topicsWrap">
-      <div class="loading">PRトピックを読み込んでいます</div>
+    <p class="section-lead">代表・担当者が、以下のテーマで取材・寄稿・登壇にお応えできます。記載のないテーマもお気軽にご相談ください。</p>
+    <div id="themesWrap"><div class="loading">取材可能テーマを読み込んでいます</div></div>
+  </div>
+</section>
+
+<!-- ==== 05 素材ダウンロード ==== -->
+<section class="block" id="assets">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">05 / PRESS ASSETS</div>
+      <h2 class="section-title">ロゴ・写真素材</h2>
+    </div>
+    <p class="section-lead">記事・番組でご利用いただけるロゴ・代表写真です。ご利用の前に、下記「素材利用時の注意事項」をご確認ください。</p>
+    <div id="assetsWrap"><div class="loading">素材を読み込んでいます</div></div>
+    <div class="usage-box">
+      <h3>素材利用時の注意事項</h3>
+      <div id="usageWrap"><div class="loading">読み込んでいます</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== 06 実績 ==== -->
+<section class="block" id="records">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">06 / TRACK RECORD</div>
+      <h2 class="section-title">PR実績</h2>
+    </div>
+    <p class="section-lead">最新の実績を抜粋しています。すべての実績は <a class="link-arrow" href="index.html">PR実績アーカイブ</a> でご覧いただけます。</p>
+
+    <h3 class="sub-head">プレスリリース<span class="section-meta" id="pressMetaInline"></span></h3>
+    <div id="pressTableWrap" data-limit="5"><div class="loading">プレスリリースを読み込んでいます</div></div>
+    <a class="more-link" href="index.html#press">すべてのプレスリリース →</a>
+
+    <h3 class="sub-head">メディア掲載<span class="section-meta" id="mediaMetaInline"></span></h3>
+    <div id="mediaTableWrap" data-limit="5"><div class="loading">メディア掲載情報を読み込んでいます</div></div>
+    <a class="more-link" href="index.html#media">すべてのメディア掲載 →</a>
+
+    <h3 class="sub-head">代表 講演・登壇<span class="section-meta" id="talksMetaInline"></span></h3>
+    <div id="talksWrap" data-limit="4"><div class="loading">講演履歴を読み込んでいます</div></div>
+    <a class="more-link" href="index.html#talks">すべての講演・登壇 →</a>
+
+    <h3 class="sub-head">受賞歴・表彰<span class="section-meta" id="awardsMetaInline"></span></h3>
+    <div id="awardsWrap"><div class="loading">受賞歴を読み込んでいます</div></div>
+  </div>
+</section>
+
+<!-- ==== 07 問い合わせ ==== -->
+<section class="block" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">07 / CONTACT</div>
+      <h2 class="section-title">お問い合わせ</h2>
+    </div>
+    <p class="section-lead">取材・寄稿・登壇のご依頼、素材の追加提供のご相談は、下記までご連絡ください。</p>
+    <div class="contact-box">
+      <div id="contactWrap"><div class="loading">読み込んでいます</div></div>
     </div>
   </div>
 </section>
@@ -607,18 +489,22 @@
     <div class="footer-inner">
       <div class="footer-block">
         <h4>Press Contact</h4>
-        <p><strong>石野 祐太朗</strong><br>PR担当</p>
-        <a href="mailto:[email protected]">[email protected]</a>
-        <a href="tel:053-488-8910">TEL: 053-488-8910</a>
+        <div id="footerContact">
+          <p>石野 祐太朗（PR担当）</p>
+          <a href="mailto:pr.lifefund@gmail.com">pr.lifefund@gmail.com</a>
+          <a href="tel:0534888910">053-488-8910</a>
+        </div>
       </div>
       <div class="footer-block">
-        <h4>Company</h4>
-        <p>株式会社LIFEFUND<br>静岡県浜松市<br>資本金 500万円</p>
+        <h4>Pages</h4>
+        <a href="mediakit.html">メディアキット</a>
+        <a href="index.html">PR実績アーカイブ</a>
+        <a href="shacho_introduction_archive.html">代表 紹介文集</a>
       </div>
       <div class="footer-block">
         <h4>Brands</h4>
         <a href="https://www.arrch.net/" target="_blank" rel="noopener">ARRCH（注文住宅）</a>
-        <a href="https://hamamatsu.pg-house.jp/" target="_blank" rel="noopener">PG HOUSE 浜松（高性能住宅）</a>
+        <a href="https://hamamatsu.pg-house.jp/" target="_blank" rel="noopener">PGHOUSE 浜松（高性能住宅）</a>
         <a href="https://kenchiku-ai.com/" target="_blank" rel="noopener">ホリエモンAI学校 建築校</a>
       </div>
       <div class="footer-block">
@@ -631,6 +517,8 @@
     </div>
   </div>
 </footer>
+
+<div class="toast" id="toast">コピーしました</div>
 
 <!-- ==== データ読込スクリプト ==== -->
 <script src="config.js"></script>
