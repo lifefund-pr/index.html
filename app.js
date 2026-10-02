@@ -469,7 +469,11 @@ function renderCeoLinks(rows) {
 }
 
 // 事業ブランド（name / category / description / url / url_label）
+// URLのあるブランドはフッターの Brands 欄にも並べる
 function renderBrands(rows) {
+  setHtml("footerBrands", rows.filter(r => safeUrl(r.url)).map(r =>
+    `<a href="${escapeHtml(safeUrl(r.url))}" target="_blank" rel="noopener">${txt(r.name)}${r.category ? `（${txt(r.category)}）` : ""}</a>`
+  ).join(""));
   setHtml("brandsWrap", `<div class="brands-grid">${rows.map(r => {
     const url = safeUrl(r.url);
     return `<div class="brand-card">
@@ -548,7 +552,7 @@ const SECTIONS = [
   { key: "contact",     render: renderContact,     targets: ["contactWrap", "footerContact"] },
   { key: "ceoProfiles", render: renderCeoProfiles, targets: ["ceoFeaturedText", "introGrid"], needs: ["assets"] },
   { key: "ceoLinks",    render: renderCeoLinks,    targets: ["relatedList"] },
-  { key: "brands",      render: renderBrands,      targets: ["brandsWrap"] },
+  { key: "brands",      render: renderBrands,      targets: ["brandsWrap", "footerBrands"] },
   { key: "themes",      render: renderThemes,      targets: ["themesWrap"] },
   { key: "assets",      render: renderAssets,      targets: ["assetsWrap"] },
   { key: "usage",       render: renderUsage,       targets: ["usageWrap"] },
