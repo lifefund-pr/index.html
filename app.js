@@ -100,11 +100,19 @@ function driveId(url) {
   const m = s.match(/\/d\/([\w-]{20,})/) || s.match(/[?&]id=([\w-]{20,})/);
   return m ? m[1] : null;
 }
-function assetLinks(url) {
+// assets/ に置いた素材は、assets/preview/ の軽い版を表示に使う（ロゴのPNGは .png、それ以外は .jpg）
+function localPreview(url, type) {
+  const m = String(url ?? "").match(/^assets\/([^/]+)\.(png|jpe?g|gif|webp|pdf)$/i);
+  if (!m) return "";
+  const ext = (String(type || "").toLowerCase() === "logo" && m[2].toLowerCase() === "png") ? "png" : "jpg";
+  return `assets/preview/${m[1]}.${ext}`;
+}
+function assetLinks(url, type) {
   const id = driveId(url);
   if (!id) {
     const u = safeUrl(url);
-    return { preview: u, previewAlt: "", download: u, view: u, sameOrigin: !/^https?:/i.test(u) };
+    const p = localPreview(u, type);
+    return { preview: p || u, previewAlt: (p && IMAGE_EXT.test(u)) ? u : "", download: u, view: u, sameOrigin: !/^https?:/i.test(u) };
   }
   return {
     preview: `https://lh3.googleusercontent.com/d/${id}=w1000`,
@@ -376,7 +384,7 @@ function renderCeoProfiles(rows, data) {
     const photo = (data.assets || []).find(a => /^(photo|写真)$/i.test(String(a.type || "").trim()) && a.url);
     const slot = $("ceoPhoto");
     if (slot && photo) {
-      const l = assetLinks(photo.url);
+      const l = assetLinks(photo.url, "photo");
       slot.innerHTML = `<img src="${escapeHtml(l.preview)}" data-fallback="${escapeHtml(l.previewAlt)}" data-label="PHOTO" alt="${txt(photo.name || "代表写真")}" loading="lazy">`;
       wireImageFallbacks(slot);
     }
@@ -506,9 +514,9 @@ function renderAssets(rows) {
   }
   setHtml("assetsWrap", `<div class="assets-grid">${list.map(r => {
     const type = String(r.type || "").trim().toLowerCase();
-    const l = assetLinks(r.url);
+    const l = assetLinks(r.url, type);
     const label = (r.format || type || "FILE").toUpperCase();
-    const isImage = !!driveId(r.url) || IMAGE_EXT.test(r.url) || type === "logo" || type === "photo";
+    const isImage = !!driveId(r.url) || IMAGE_EXT.test(r.url) || !!localPreview(r.url, type) || type === "logo" || type === "photo";
     const thumb = isImage
       ? `<img src="${escapeHtml(l.preview)}" data-fallback="${escapeHtml(l.previewAlt)}" data-label="${escapeHtml(label)}" alt="${txt(r.name)}" loading="lazy">`
       : `<div class="asset-tile">${escapeHtml(label)}</div>`;

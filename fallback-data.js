@@ -238,6 +238,21 @@ const FALLBACK_DATA = {
   ],
 
   assets: [
+    {"name":"LIFEFUND ロゴ（カラー）","type":"logo","url":"assets/LIFEFUND_logo_color.png","format":"PNG","usage_note":"白・明るい背景用","background":""},
+    {"name":"建築AI経営研究会 ロゴ","type":"logo","url":"assets/KenchikuAI_logo_color.png","format":"PNG","usage_note":"","background":""},
+    {"name":"ARRCH ロゴ（紺地に白）","type":"logo","url":"assets/ARRCH_logo_white_on_navy.png","format":"PNG","usage_note":"紺色の背景つき","background":""},
+    {"name":"PGHOUSE ロゴ（カラー）","type":"logo","url":"assets/PGHOUSE_logo_color.png","format":"PNG","usage_note":"","background":""},
+    {"name":"物件王国 ロゴ（カラー）","type":"logo","url":"assets/BukkenOukoku_logo_color.png","format":"PNG","usage_note":"小さめのデータです","background":""},
+    {"name":"代表取締役 白都卓磨（顔写真）","type":"photo","url":"assets/LIFEFUND_CEO_Hakuto_01_headshot.png","format":"PNG","usage_note":"","background":""},
+    {"name":"代表取締役 白都卓磨（ポートレート）","type":"photo","url":"assets/LIFEFUND_CEO_Hakuto_02_portrait.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"代表取締役 白都卓磨（インタビュー）","type":"photo","url":"assets/LIFEFUND_CEO_Hakuto_03_interview.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"代表取締役 白都卓磨（窓辺）","type":"photo","url":"assets/LIFEFUND_CEO_Hakuto_04_window.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"ARRCH 施工事例（外観・夜）","type":"施工事例","url":"assets/ARRCH_works_01_exterior_night.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"ARRCH 施工事例（LDK）","type":"施工事例","url":"assets/ARRCH_works_02_interior_LDK.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"ARRCH モデルハウス（笠井新田・外観）","type":"施工事例","url":"assets/ARRCH_works_04_KasaiShinden_model_exterior.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"PGHOUSE 施工事例（外観・夜）","type":"施工事例","url":"assets/PGHOUSE_works_03_exterior_night.jpg","format":"JPG","usage_note":"","background":""},
+    {"name":"会社資料：ビジョン・ミッション","type":"document","url":"assets/LIFEFUND_vision_mission.pdf","format":"PDF","usage_note":"","background":""},
+    {"name":"会社資料：事業の目的（循環型社会の実現）","type":"document","url":"assets/LIFEFUND_business_purpose_circular_society.pdf","format":"PDF","usage_note":"","background":""},
   ],
 
   usage: [
